@@ -1,0 +1,598 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "OAuth {{tolokaToken}}",
+      "in": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/projects"
+          },
+          "docs": "Get the list of projects"
+        },
+        {
+          "info": {
+            "name": "Create a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a project"
+        },
+        {
+          "info": {
+            "name": "Get a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/projects/{id}"
+          },
+          "docs": "Get a project"
+        },
+        {
+          "info": {
+            "name": "Edit a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.toloka.ai/api/v1/projects/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit a project"
+        },
+        {
+          "info": {
+            "name": "Archive a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/projects/{id}/archive"
+          },
+          "docs": "Archive a project"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of pools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/pools"
+          },
+          "docs": "Get the list of pools"
+        },
+        {
+          "info": {
+            "name": "Create a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/pools",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a pool"
+        },
+        {
+          "info": {
+            "name": "Get a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/pools/{id}"
+          },
+          "docs": "Get a pool"
+        },
+        {
+          "info": {
+            "name": "Edit a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.toloka.ai/api/v1/pools/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit a pool"
+        },
+        {
+          "info": {
+            "name": "Open a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/pools/{id}/open"
+          },
+          "docs": "Start showing the pool's tasks to Tolokers."
+        },
+        {
+          "info": {
+            "name": "Close a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/pools/{id}/close"
+          },
+          "docs": "Close a pool"
+        },
+        {
+          "info": {
+            "name": "Archive a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/pools/{id}/archive"
+          },
+          "docs": "Archive a pool"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Training",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of training pools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/trainings"
+          },
+          "docs": "Get the list of training pools"
+        },
+        {
+          "info": {
+            "name": "Create a training pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/trainings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a training pool"
+        },
+        {
+          "info": {
+            "name": "Open a training pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/trainings/{id}/open"
+          },
+          "docs": "Open a training pool"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/tasks"
+          },
+          "docs": "Get the list of tasks"
+        },
+        {
+          "info": {
+            "name": "Create tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/tasks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create one task or a batch of tasks. Up to 100,000 tasks per minute and 2,000,000 tasks per day. With async_mode=true an Operation is returned."
+        },
+        {
+          "info": {
+            "name": "Get a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/tasks/{id}"
+          },
+          "docs": "Get a task"
+        },
+        {
+          "info": {
+            "name": "Edit a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.toloka.ai/api/v1/tasks/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change a task's overlap or infinite_overlap."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Task Suites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of task suites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/task-suites"
+          },
+          "docs": "Get the list of task suites"
+        },
+        {
+          "info": {
+            "name": "Create task suites",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/task-suites",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create one or many task suites. Supports async_mode for batches."
+        },
+        {
+          "info": {
+            "name": "Get a task suite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/task-suites/{id}"
+          },
+          "docs": "Get a task suite"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Assignments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/assignments"
+          },
+          "docs": "Retrieve Toloker responses, optionally filtered by pool and status."
+        },
+        {
+          "info": {
+            "name": "Get an assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/assignments/{id}"
+          },
+          "docs": "Get an assignment"
+        },
+        {
+          "info": {
+            "name": "Accept or reject an assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.toloka.ai/api/v1/assignments/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set status to ACCEPTED or REJECTED, with a public comment for the Toloker."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User Bonuses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Issue bonuses to Tolokers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/user-bonuses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Issue bonuses to Tolokers"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User Restrictions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Restrict a Toloker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/user-restrictions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restrict a Toloker"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Skills",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of skills",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/skills"
+          },
+          "docs": "Get the list of skills"
+        },
+        {
+          "info": {
+            "name": "Create a skill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/skills",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a skill"
+        },
+        {
+          "info": {
+            "name": "Assign a skill value to a Toloker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/user-skills",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign a skill value to a Toloker"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Attachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/attachments"
+          },
+          "docs": "Get the list of attachments"
+        },
+        {
+          "info": {
+            "name": "Get attachment metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/attachments/{id}"
+          },
+          "docs": "Get attachment metadata"
+        },
+        {
+          "info": {
+            "name": "Download an attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/attachments/{id}/download"
+          },
+          "docs": "Download an attachment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/operations"
+          },
+          "docs": "Get the list of operations"
+        },
+        {
+          "info": {
+            "name": "Get an operation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/operations/{id}"
+          },
+          "docs": "Poll the status of an asynchronous operation."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhook Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of webhook subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/webhook-subscriptions"
+          },
+          "docs": "Get the list of webhook subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create webhook subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.toloka.ai/api/v1/webhook-subscriptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Subscribe to platform events (e.g. POOL_CLOSED, ASSIGNMENT_CREATED, ASSIGNMENT_SUBMITTED, ASSIGNMENT_APPROVED, ASSIGNMENT_REJECTED). Add a secret_key to receive a signed Toloka-Signature header (HMAC SHA256)."
+        },
+        {
+          "info": {
+            "name": "Get a webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/webhook-subscriptions/{id}"
+          },
+          "docs": "Get a webhook subscription"
+        },
+        {
+          "info": {
+            "name": "Delete a webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.toloka.ai/api/v1/webhook-subscriptions/{id}"
+          },
+          "docs": "Delete a webhook subscription"
+        }
+      ]
+    }
+  ]
+}

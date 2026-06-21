@@ -1,0 +1,99 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Toloka
+providerId: toloka
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Data Labeling
+- Crowdsourcing
+- Human-in-the-Loop
+- Training Data
+- AI
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Toloka spend. Toloka cost is driven by human-data work:
+  requesters pay a reward per completed assignment (task suite) at a rate they
+  set per pool, multiplied by overlap and task volume, plus platform commission
+  and any bonuses issued to Tolokers. Managed human-data engagements are billed
+  per contract. Per-assignment rewards, commission rates, and managed-service
+  pricing are not publicly listed and are not reconciled in this artifact.
+notes: >-
+  Total spend is highly sensitive to overlap and pool configuration; modeling
+  cost = tasks x overlap x reward + commission + bonuses is the primary lever.
+  Verify commission and managed pricing with Toloka sales during reconciliation.
+sources:
+- https://toloka.ai
+- https://toloka.ai/docs/api/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Toloka
+serviceCategory: AI and Machine Learning
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Prepaid
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Toloka
+  ServiceCategory: AI and Machine Learning
+  ProviderName: Toloka
+  PublisherName: Toloka
+  InvoiceIssuerName: Toloka
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: assignment_rewards
+  description: Reward paid per completed assignment (task suite), at the per-pool rate.
+  unit: assignments
+  aggregation: sum
+  dimensions:
+  - account
+  - project
+  - pool
+- name: platform_commission
+  description: Toloka commission applied on top of rewards paid to Tolokers.
+  unit: assignments
+  aggregation: sum
+  dimensions:
+  - account
+  - pool
+- name: bonuses
+  description: Discretionary bonuses issued to Tolokers via the User Bonuses API.
+  unit: bonuses
+  aggregation: sum
+  dimensions:
+  - account
+  - pool
+  - user
+- name: managed_engagement
+  description: Sales-led managed human-data engagement billed per contract.
+  unit: contracts
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Pull Toloka balance and pool-level spend; inspect reward x overlap x task-volume burn per pool.
+- name: Allocation
+  description: Tag projects and pools to teams/workloads; map prepaid balance draws to cost centers.
+- name: Optimization
+  description: Tune overlap and dynamic overlap, use training pools and skills to cut rework, and reserve bonuses for high-value Tolokers.
+- name: Accountability
+  description: Assign owners per project/pool; review reward and bonus spend against budget before opening pools.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

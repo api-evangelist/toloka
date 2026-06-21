@@ -1,0 +1,102 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Toloka
+providerId: toloka
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Data Labeling
+- Crowdsourcing
+- Human-in-the-Loop
+- Training Data
+- AI
+- Plans
+description: >-
+  Toloka pricing is sales-led and usage-based rather than published per-token
+  tiers. Requesters fund a balance and pay per completed assignment (task suite)
+  at a reward they set per pool, plus Toloka's commission and any bonuses they
+  issue. Managed and enterprise human-data offerings (training data, evaluation,
+  expert networks for AI agents and LLMs) are quoted by the Toloka sales team.
+  Specific reward amounts, commission rates, and managed-service pricing are not
+  publicly listed and are not reconciled in this artifact.
+notes: >-
+  Reward-per-assignment is configured by the requester at the pool level; total
+  cost depends on overlap, number of tasks, commission, and bonuses. Confirm
+  current commission, minimums, and managed-service quotes with Toloka sales
+  during reconciliation.
+sources:
+- https://toloka.ai
+- https://toloka.ai/docs/api/
+- https://toloka.ai/docs/guide/
+plans:
+- id: toloka-self-serve
+  name: Self-Serve (Pay-as-you-go)
+  type: usage
+  description: >-
+    Requester funds a balance and pays per completed assignment at a reward set
+    per pool, plus Toloka commission and any bonuses. Used via the API and
+    toloka-kit SDK.
+  entries:
+  - label: Reward per assignment
+    name: reward_per_assignment
+    type: usage
+    metric: assignments
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: requester-set per pool (USD)
+    userMultiplied: true
+  - label: Platform commission
+    name: commission
+    type: usage
+    metric: assignments
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: see provider / contact sales
+    userMultiplied: false
+  - label: Toloker bonuses
+    name: bonuses
+    type: usage
+    metric: bonuses
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: requester-set per bonus (USD)
+    userMultiplied: true
+  elements:
+  - name: Projects
+  - name: Pools
+  - name: Tasks & Task Suites
+  - name: Assignments
+  - name: Skills
+- id: toloka-managed
+  name: Managed Human Data
+  type: enterprise
+  description: >-
+    Sales-led managed services for AI agent and LLM training data, evaluation,
+    red-teaming, and expert networks. Scoped and quoted per engagement.
+  entries:
+  - label: Managed Engagement
+    name: managed
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Training Data
+  - name: Model Evaluation
+  - name: Expert Networks
+  - name: Custom Pipelines
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

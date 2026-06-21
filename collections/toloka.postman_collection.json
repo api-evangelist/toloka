@@ -1,0 +1,1976 @@
+{
+  "item": [
+    {
+      "id": "a912bc00-b3ed-4d32-992e-f9f092765b60",
+      "name": "Projects",
+      "description": {
+        "content": "Create and manage projects that define task interface and instructions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1087bc9a-f448-40a9-980e-66b01eb017d7",
+          "name": "Get the list of projects",
+          "request": {
+            "name": "Get the list of projects",
+            "description": {
+              "content": "Get the list of projects",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "projects"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "8a04ad06-71f0-488e-97e2-b36cf306d2ba",
+          "name": "Create a project",
+          "request": {
+            "name": "Create a project",
+            "description": {
+              "content": "Create a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "projects"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "933d50af-6001-4abd-9af1-2c6d79c79945",
+          "name": "Get a project",
+          "request": {
+            "name": "Get a project",
+            "description": {
+              "content": "Get a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/projects/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "projects",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "7d767d7d-ccee-467a-abe8-d20c875ed2c4",
+          "name": "Edit a project",
+          "request": {
+            "name": "Edit a project",
+            "description": {
+              "content": "Edit a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/projects/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "projects",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "a73c4c77-a6d5-46e5-b57c-f18f29403adf",
+          "name": "Archive a project",
+          "request": {
+            "name": "Archive a project",
+            "description": {
+              "content": "Archive a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/projects/{id}/archive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "projects",
+                ":id",
+                "archive"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "62bf48c8-44e5-47a6-9437-8a44a88e4f74",
+      "name": "Pools",
+      "description": {
+        "content": "Create, configure, open, and close pools of tasks for Tolokers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dc5bf7fb-88fb-4d2d-85e5-5faa50accd59",
+          "name": "Get the list of pools",
+          "request": {
+            "name": "Get the list of pools",
+            "description": {
+              "content": "Get the list of pools",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/pools",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "pools"
+              ],
+              "query": [
+                {
+                  "key": "project_id",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "76dd2e10-a8a7-4411-957f-9425471c5c25",
+          "name": "Create a pool",
+          "request": {
+            "name": "Create a pool",
+            "description": {
+              "content": "Create a pool",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/pools",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "pools"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "6a3dd0ce-497f-41a2-87aa-9836f24dd884",
+          "name": "Get a pool",
+          "request": {
+            "name": "Get a pool",
+            "description": {
+              "content": "Get a pool",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/pools/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "pools",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "4ba69fb3-8186-4ce7-9bf4-9b61bcb7cd7e",
+          "name": "Edit a pool",
+          "request": {
+            "name": "Edit a pool",
+            "description": {
+              "content": "Edit a pool",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/pools/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "pools",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "a44bee0c-9aaf-4180-9e5a-055678820df1",
+          "name": "Open a pool",
+          "request": {
+            "name": "Open a pool",
+            "description": {
+              "content": "Start showing the pool's tasks to Tolokers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/pools/{id}/open",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "pools",
+                ":id",
+                "open"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "a75ef552-7c0f-4644-8019-f19863a29c41",
+          "name": "Close a pool",
+          "request": {
+            "name": "Close a pool",
+            "description": {
+              "content": "Close a pool",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/pools/{id}/close",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "pools",
+                ":id",
+                "close"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "76aca20d-23bd-481f-ad9e-feb4c9cccca4",
+          "name": "Archive a pool",
+          "request": {
+            "name": "Archive a pool",
+            "description": {
+              "content": "Archive a pool",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/pools/{id}/archive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "pools",
+                ":id",
+                "archive"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "9ae2ac3e-e051-4af1-b9d3-27008eddd1a0",
+      "name": "Training",
+      "description": {
+        "content": "Create and manage training pools used to qualify Tolokers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bfdf6324-c1ef-49fc-ac66-501f18337ba0",
+          "name": "Get the list of training pools",
+          "request": {
+            "name": "Get the list of training pools",
+            "description": {
+              "content": "Get the list of training pools",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/trainings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "trainings"
+              ],
+              "query": [
+                {
+                  "key": "project_id",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "0f708be2-a703-4904-b40c-03127beed38c",
+          "name": "Create a training pool",
+          "request": {
+            "name": "Create a training pool",
+            "description": {
+              "content": "Create a training pool",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/trainings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "trainings"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "165cb725-26e0-455e-978f-92e7f6fbddfd",
+          "name": "Open a training pool",
+          "request": {
+            "name": "Open a training pool",
+            "description": {
+              "content": "Open a training pool",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/trainings/{id}/open",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "trainings",
+                ":id",
+                "open"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "391dab72-10be-4776-9e53-bc375ae916fa",
+      "name": "Tasks",
+      "description": {
+        "content": "Upload and retrieve individual tasks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ffd091a-52ff-45a3-82fc-65da2a01ddda",
+          "name": "Get the list of tasks",
+          "request": {
+            "name": "Get the list of tasks",
+            "description": {
+              "content": "Get the list of tasks",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "pool_id",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "c7fdcb65-7dee-4b50-bbc1-2097ad4c26a1",
+          "name": "Create tasks",
+          "request": {
+            "name": "Create tasks",
+            "description": {
+              "content": "Create one task or a batch of tasks. Up to 100,000 tasks per minute and 2,000,000 tasks per day. With async_mode=true an Operation is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "async_mode",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "allow_defaults",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "skip_invalid_items",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "0ed0109d-a008-4436-8051-dcf4a8a736e8",
+          "name": "Get a task",
+          "request": {
+            "name": "Get a task",
+            "description": {
+              "content": "Get a task",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/tasks/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "tasks",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "79715e57-af50-4f8a-a166-4aa6e2976d7f",
+          "name": "Edit a task",
+          "request": {
+            "name": "Edit a task",
+            "description": {
+              "content": "Change a task's overlap or infinite_overlap.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/tasks/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "tasks",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "a2b39ee7-cf74-4ae2-b37f-59947c0b6638",
+      "name": "Task Suites",
+      "description": {
+        "content": "Upload and retrieve task suites (groups of tasks shown together).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80904f2d-1347-4cb1-9f47-ead1022154e6",
+          "name": "Get the list of task suites",
+          "request": {
+            "name": "Get the list of task suites",
+            "description": {
+              "content": "Get the list of task suites",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/task-suites",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "task-suites"
+              ],
+              "query": [
+                {
+                  "key": "pool_id",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "52b8addb-d1fe-469b-a90a-3d5358304c77",
+          "name": "Create task suites",
+          "request": {
+            "name": "Create task suites",
+            "description": {
+              "content": "Create one or many task suites. Supports async_mode for batches.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/task-suites",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "task-suites"
+              ],
+              "query": [
+                {
+                  "key": "async_mode",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "skip_invalid_items",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "3351f7db-f34a-4143-a339-c606db4eadbd",
+          "name": "Get a task suite",
+          "request": {
+            "name": "Get a task suite",
+            "description": {
+              "content": "Get a task suite",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/task-suites/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "task-suites",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "55942005-0c07-4d3d-b1dd-ef4485437b30",
+      "name": "Assignments",
+      "description": {
+        "content": "Retrieve Toloker responses and accept or reject completed assignments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2a43e9f5-5330-480b-8af7-cd18166b1089",
+          "name": "Get the list of assignments",
+          "request": {
+            "name": "Get the list of assignments",
+            "description": {
+              "content": "Retrieve Toloker responses, optionally filtered by pool and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/assignments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "assignments"
+              ],
+              "query": [
+                {
+                  "key": "pool_id",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "user_id",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "70573aae-d8c0-4a0b-b533-e9192657c958",
+          "name": "Get an assignment",
+          "request": {
+            "name": "Get an assignment",
+            "description": {
+              "content": "Get an assignment",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/assignments/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "assignments",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "9b3dda28-5554-414b-a950-109d2470cc47",
+          "name": "Accept or reject an assignment",
+          "request": {
+            "name": "Accept or reject an assignment",
+            "description": {
+              "content": "Set status to ACCEPTED or REJECTED, with a public comment for the Toloker.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/assignments/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "assignments",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "60a47b56-5638-4981-840d-7f19218f1ad1",
+      "name": "User Bonuses",
+      "description": {
+        "content": "Issue bonus payments to Tolokers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34dff856-801d-41c8-a3ec-7de2e7184e7a",
+          "name": "Issue bonuses to Tolokers",
+          "request": {
+            "name": "Issue bonuses to Tolokers",
+            "description": {
+              "content": "Issue bonuses to Tolokers",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/user-bonuses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "user-bonuses"
+              ],
+              "query": [
+                {
+                  "key": "async_mode",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "skip_invalid_items",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "e87544bd-9f51-46b5-b5bc-28778e03e362",
+      "name": "User Restrictions",
+      "description": {
+        "content": "Restrict Tolokers from a pool, project, or all projects.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2cae804-8111-4993-80c9-a0dbee4be9c6",
+          "name": "Restrict a Toloker",
+          "request": {
+            "name": "Restrict a Toloker",
+            "description": {
+              "content": "Restrict a Toloker",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/user-restrictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "user-restrictions"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "6b60bfb8-844d-4ee3-b941-422ac47c7332",
+      "name": "Skills",
+      "description": {
+        "content": "Create and manage skills assigned to Tolokers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b2e0498c-0a5e-462a-947d-4e8dc20d5134",
+          "name": "Get the list of skills",
+          "request": {
+            "name": "Get the list of skills",
+            "description": {
+              "content": "Get the list of skills",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/skills",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "skills"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "34bd9940-f8e7-480c-bcd7-cb7ece423235",
+          "name": "Create a skill",
+          "request": {
+            "name": "Create a skill",
+            "description": {
+              "content": "Create a skill",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/skills",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "skills"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "0843bd56-30c3-4961-89f9-6ed9ca769a2e",
+          "name": "Assign a skill value to a Toloker",
+          "request": {
+            "name": "Assign a skill value to a Toloker",
+            "description": {
+              "content": "Assign a skill value to a Toloker",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/user-skills",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "user-skills"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "9af7f922-2037-4bf0-a41e-742b611582f0",
+      "name": "Attachments",
+      "description": {
+        "content": "Retrieve files Tolokers attached to their assignments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ba314d4-af7b-4d3f-9159-c9e3529dd389",
+          "name": "Get the list of attachments",
+          "request": {
+            "name": "Get the list of attachments",
+            "description": {
+              "content": "Get the list of attachments",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/attachments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "attachments"
+              ],
+              "query": [
+                {
+                  "key": "pool_id",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "fdec0324-016e-40a0-91bf-c9e8f5166ece",
+          "name": "Get attachment metadata",
+          "request": {
+            "name": "Get attachment metadata",
+            "description": {
+              "content": "Get attachment metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/attachments/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "attachments",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "e476fe24-93ba-420f-b611-4d37795d742a",
+          "name": "Download an attachment",
+          "request": {
+            "name": "Download an attachment",
+            "description": {
+              "content": "Download an attachment",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/attachments/{id}/download",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "attachments",
+                ":id",
+                "download"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "cc337087-3ca3-4b53-bc74-43b188ba5489",
+      "name": "Operations",
+      "description": {
+        "content": "Track the status of asynchronous operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "622983f4-0556-4e41-a581-764466fc65d6",
+          "name": "Get the list of operations",
+          "request": {
+            "name": "Get the list of operations",
+            "description": {
+              "content": "Get the list of operations",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/operations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "operations"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "25624311-3b12-4a5d-8cf3-35d25819eeb1",
+          "name": "Get an operation",
+          "request": {
+            "name": "Get an operation",
+            "description": {
+              "content": "Poll the status of an asynchronous operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/operations/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "operations",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "dc97e77e-d32b-48c6-b905-750b4b82c327",
+      "name": "Webhook Subscriptions",
+      "description": {
+        "content": "Subscribe to platform events delivered to your endpoint.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5e42770d-dcc7-484a-9369-e7b30f517114",
+          "name": "Get the list of webhook subscriptions",
+          "request": {
+            "name": "Get the list of webhook subscriptions",
+            "description": {
+              "content": "Get the list of webhook subscriptions",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/webhook-subscriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "webhook-subscriptions"
+              ],
+              "query": [
+                {
+                  "key": "pool_id",
+                  "value": "<value>",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "<value>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "540f8cde-8d7d-4f18-ad02-bdb6ca51d970",
+          "name": "Create webhook subscriptions",
+          "request": {
+            "name": "Create webhook subscriptions",
+            "description": {
+              "content": "Subscribe to platform events (e.g. POOL_CLOSED, ASSIGNMENT_CREATED, ASSIGNMENT_SUBMITTED, ASSIGNMENT_APPROVED, ASSIGNMENT_REJECTED). Add a secret_key to receive a signed Toloka-Signature header (HMAC SHA256).",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/webhook-subscriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "webhook-subscriptions"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "a161e7a7-437c-4558-8518-76c8b55be01e",
+          "name": "Get a webhook subscription",
+          "request": {
+            "name": "Get a webhook subscription",
+            "description": {
+              "content": "Get a webhook subscription",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/webhook-subscriptions/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "webhook-subscriptions",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "0bf2640d-6913-492d-921f-2ab5366160a3",
+          "name": "Delete a webhook subscription",
+          "request": {
+            "name": "Delete a webhook subscription",
+            "description": {
+              "content": "Delete a webhook subscription",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "https://api.toloka.ai/api/v1/webhook-subscriptions/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "webhook-subscriptions",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "OAuth {{tolokaToken}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dde15dff-fe7f-474c-b6fa-5bd5b75ac7f4",
+    "name": "Toloka API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

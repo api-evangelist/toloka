@@ -1,0 +1,80 @@
+aid: toloka
+name: Toloka
+review:
+  question: Does Toloka expose a documented public WebSocket or streaming API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Toloka's only event-delivery surface is
+    HTTP webhook subscriptions (PUT /webhook-subscriptions), where the platform
+    POSTs event notifications to a requester-supplied URL. That is an outbound
+    HTTP callback pattern, not a client-consumed WebSocket or Server-Sent
+    Events stream, so it is modeled as REST endpoints in the OpenAPI rather
+    than as an AsyncAPI channel.
+findings:
+  summary: |
+    Toloka does not publish a documented public WebSocket or streaming API. The
+    Toloka API is REST over HTTPS under https://api.toloka.ai/api (also served
+    at https://toloka.dev/api) with paths under /v1. Asynchronous work (bulk
+    task/task-suite/bonus creation, opening/closing pools) is handled by the
+    Operations resource: a write returns an Operation that the client polls via
+    GET /v1/operations/{id}. Event delivery is push-based HTTP: requesters
+    register webhook subscriptions and Toloka POSTs signed notifications
+    (Toloka-Signature, HMAC SHA256) to the configured URL. No ws:// or wss://
+    endpoint is documented. The toloka-kit Python SDK adds client-side
+    "streaming" helpers, but these poll the REST API; they are not a server
+    WebSocket transport.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.toloka.ai/api/v1
+      documented: true
+    - protocol: Webhook
+      scheme: https
+      note: Toloka POSTs event notifications (POOL_CLOSED, ASSIGNMENT_*) to a requester URL, optionally signed with an HMAC SHA256 Toloka-Signature header. Outbound HTTP callback, not a client-consumed stream.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Toloka's API reference or guides as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://api.toloka.ai/api/v1/projects
+    - POST   https://api.toloka.ai/api/v1/projects
+    - GET    https://api.toloka.ai/api/v1/pools
+    - POST   https://api.toloka.ai/api/v1/pools
+    - POST   https://api.toloka.ai/api/v1/pools/{id}/open
+    - POST   https://api.toloka.ai/api/v1/pools/{id}/close
+    - POST   https://api.toloka.ai/api/v1/tasks
+    - GET    https://api.toloka.ai/api/v1/tasks
+    - POST   https://api.toloka.ai/api/v1/task-suites
+    - GET    https://api.toloka.ai/api/v1/task-suites
+    - GET    https://api.toloka.ai/api/v1/assignments
+    - PATCH  https://api.toloka.ai/api/v1/assignments/{id}
+    - POST   https://api.toloka.ai/api/v1/user-bonuses
+    - GET    https://api.toloka.ai/api/v1/operations/{id}
+    - PUT    https://api.toloka.ai/api/v1/webhook-subscriptions
+sources:
+  - url: https://toloka.ai/docs/api/
+    type: Documentation
+    note: API overview; REST base path under /api/v1, OAuth token / ApiKey auth.
+  - url: https://toloka.ai/docs/api/api-reference/
+    type: APIReference
+    note: All documented endpoints are HTTPS REST.
+  - url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+    type: Documentation
+    note: Event delivery is push-based HTTP via webhook subscriptions, not WebSocket.
+  - url: https://github.com/Toloka/toloka-kit
+    type: GitHub
+    note: Python SDK; "streaming" pipeline helpers poll the REST API, not a server WebSocket.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or SSE protocol surface exists. Toloka's event mechanism is
+    outbound HTTP webhooks, which are represented as REST endpoints in
+    openapi/toloka-openapi.yml. No AsyncAPI document was authored.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,64 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Toloka
+providerId: toloka
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Data Labeling
+- Crowdsourcing
+- Human-in-the-Loop
+- Training Data
+- AI
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Toloka API applies throughput limits primarily on bulk write operations.
+  Task and task-suite uploads are capped at up to 100,000 items per minute and
+  2,000,000 items per day, and large batches must be created with async_mode so
+  the work is processed as an Operation that the client polls. Per-account
+  request-rate limits also apply to read and write endpoints; specific
+  per-endpoint values are not fully published and are not reconciled here.
+notes: >-
+  Use async_mode=true for large task/task-suite/bonus batches and poll the
+  returned Operation rather than issuing many synchronous requests. Verify exact
+  per-endpoint request rates and burst limits with Toloka support on
+  reconciliation.
+sources:
+- https://toloka.ai/docs/api/
+- https://toloka.ai/docs/api/concepts/upload-tasks
+- https://github.com/Toloka/toloka-kit
+responseCodes:
+  throttled: 429
+limits:
+- name: Task Upload (per minute)
+  scope: account
+  metric: tasks
+  limit: 100000
+  notes: Maximum tasks created per minute via POST /tasks.
+- name: Task Upload (per day)
+  scope: account
+  metric: tasks
+  limit: 2000000
+  notes: Maximum tasks created per day via POST /tasks.
+- name: Task Suite Upload
+  scope: account
+  metric: task_suites
+  limit: see provider documentation
+  notes: Bulk task-suite creation; use async_mode for large batches.
+- name: Request Rate
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-account API request-rate limit; specific value not published.
+policies:
+- name: Asynchronous Batching
+  description: Large task, task-suite, and bonus batches must use async_mode=true and be tracked via the Operations API.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
