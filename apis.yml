@@ -133,6 +133,12 @@ apis:
     actions, and manage webhook subscriptions that push pool and assignment events
     to your endpoint with HMAC SHA256 signed notifications.
 common:
+- type: VulnerabilityDisclosure
+  url: security/toloka-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/toloka-domain-security.yml
+- type: Authentication
+  url: authentication/toloka-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/Toloka
 - type: LinkedIn
@@ -147,6 +153,8 @@ common:
   url: rate-limits/toloka-rate-limits.yml
 - type: FinOps
   url: finops/toloka-finops.yml
+- type: Blog
+  url: https://toloka.ai/blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

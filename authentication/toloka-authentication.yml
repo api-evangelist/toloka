@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/toloka-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: OAuthToken
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization:
+    OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'
+  sources:
+  - openapi/toloka-openapi.yml
