@@ -133,6 +133,8 @@ apis:
     actions, and manage webhook subscriptions that push pool and assignment events
     to your endpoint with HMAC SHA256 signed notifications.
 common:
+- type: AgenticAccess
+  url: agentic-access/toloka-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/toloka-vulnerability-disclosure.yml
 - type: DomainSecurity
