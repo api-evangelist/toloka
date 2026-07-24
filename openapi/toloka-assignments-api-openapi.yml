@@ -1,0 +1,214 @@
+openapi: 3.0.1
+info:
+  title: Toloka Assignments API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  termsOfService: https://toloka.ai/legal/terms_of_service/
+  contact:
+    name: Toloka Support
+    email: support@toloka.ai
+  version: '1.0'
+servers:
+- url: https://api.toloka.ai/api
+  description: Toloka production API (api.toloka.ai)
+- url: https://toloka.dev/api
+  description: Toloka production API (toloka.dev)
+security:
+- OAuthToken: []
+tags:
+- name: Assignments
+  description: Retrieve Toloker responses and accept or reject completed assignments.
+paths:
+  /v1/assignments:
+    get:
+      operationId: getAssignments
+      tags:
+      - Assignments
+      summary: Get the list of assignments
+      description: Retrieve Toloker responses, optionally filtered by pool and status.
+      parameters:
+      - name: pool_id
+        in: query
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - SUBMITTED
+          - ACCEPTED
+          - REJECTED
+          - SKIPPED
+          - EXPIRED
+      - name: user_id
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A page of assignments.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentSearchResult'
+  /v1/assignments/{id}:
+    get:
+      operationId: getAssignment
+      tags:
+      - Assignments
+      summary: Get an assignment
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The requested assignment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assignment'
+    patch:
+      operationId: patchAssignment
+      tags:
+      - Assignments
+      summary: Accept or reject an assignment
+      description: Set status to ACCEPTED or REJECTED, with a public comment for the Toloker.
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - status
+              - public_comment
+              properties:
+                status:
+                  type: string
+                  enum:
+                  - ACCEPTED
+                  - REJECTED
+                public_comment:
+                  type: string
+      responses:
+        '200':
+          description: The updated assignment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assignment'
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        input_values:
+          type: object
+          additionalProperties: true
+          description: Input data matching the project's input_spec.
+        known_solutions:
+          type: array
+          items:
+            type: object
+            properties:
+              output_values:
+                type: object
+                additionalProperties: true
+              correctness_weight:
+                type: number
+        overlap:
+          type: integer
+        infinite_overlap:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - input_values
+    Assignment:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        task_suite_id:
+          type: string
+        pool_id:
+          type: string
+        user_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - SUBMITTED
+          - ACCEPTED
+          - REJECTED
+          - SKIPPED
+          - EXPIRED
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        solutions:
+          type: array
+          items:
+            type: object
+            properties:
+              output_values:
+                type: object
+                additionalProperties: true
+        reward:
+          type: number
+        public_comment:
+          type: string
+        created:
+          type: string
+          format: date-time
+        submitted:
+          type: string
+          format: date-time
+        accepted:
+          type: string
+          format: date-time
+    AssignmentSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Assignment'
+        has_more:
+          type: boolean
+  securitySchemes:
+    OAuthToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization: OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'

@@ -1,0 +1,132 @@
+openapi: 3.0.1
+info:
+  title: Toloka Assignments User Bonuses API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  termsOfService: https://toloka.ai/legal/terms_of_service/
+  contact:
+    name: Toloka Support
+    email: support@toloka.ai
+  version: '1.0'
+servers:
+- url: https://api.toloka.ai/api
+  description: Toloka production API (api.toloka.ai)
+- url: https://toloka.dev/api
+  description: Toloka production API (toloka.dev)
+security:
+- OAuthToken: []
+tags:
+- name: User Bonuses
+  description: Issue bonus payments to Tolokers.
+paths:
+  /v1/user-bonuses:
+    post:
+      operationId: createUserBonuses
+      tags:
+      - User Bonuses
+      summary: Issue bonuses to Tolokers
+      parameters:
+      - $ref: '#/components/parameters/AsyncMode'
+      - name: skip_invalid_items
+        in: query
+        schema:
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/UserBonus'
+              - type: array
+                items:
+                  $ref: '#/components/schemas/UserBonus'
+      responses:
+        '201':
+          description: The issued bonus(es).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserBonus'
+        '202':
+          description: An asynchronous bonus operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  schemas:
+    Operation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - SUCCESS
+          - FAIL
+        submitted:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        progress:
+          type: integer
+        parameters:
+          type: object
+          additionalProperties: true
+        details:
+          type: object
+          additionalProperties: true
+    UserBonus:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        user_id:
+          type: string
+        amount:
+          type: number
+          description: Bonus amount in US dollars.
+        assignment_id:
+          type: string
+        private_comment:
+          type: string
+        public_title:
+          type: object
+          additionalProperties:
+            type: string
+        public_message:
+          type: object
+          additionalProperties:
+            type: string
+        without_message:
+          type: boolean
+      required:
+      - user_id
+      - amount
+  parameters:
+    AsyncMode:
+      name: async_mode
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: When true, the request runs asynchronously and returns an Operation.
+  securitySchemes:
+    OAuthToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization: OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'

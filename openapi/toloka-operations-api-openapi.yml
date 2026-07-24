@@ -1,0 +1,121 @@
+openapi: 3.0.1
+info:
+  title: Toloka Assignments Operations API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  termsOfService: https://toloka.ai/legal/terms_of_service/
+  contact:
+    name: Toloka Support
+    email: support@toloka.ai
+  version: '1.0'
+servers:
+- url: https://api.toloka.ai/api
+  description: Toloka production API (api.toloka.ai)
+- url: https://toloka.dev/api
+  description: Toloka production API (toloka.dev)
+security:
+- OAuthToken: []
+tags:
+- name: Operations
+  description: Track the status of asynchronous operations.
+paths:
+  /v1/operations:
+    get:
+      operationId: getOperations
+      tags:
+      - Operations
+      summary: Get the list of operations
+      parameters:
+      - name: type
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A page of operations.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationSearchResult'
+  /v1/operations/{id}:
+    get:
+      operationId: getOperation
+      tags:
+      - Operations
+      summary: Get an operation
+      description: Poll the status of an asynchronous operation.
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The requested operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  schemas:
+    Operation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - SUCCESS
+          - FAIL
+        submitted:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        progress:
+          type: integer
+        parameters:
+          type: object
+          additionalProperties: true
+        details:
+          type: object
+          additionalProperties: true
+    OperationSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        has_more:
+          type: boolean
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+  securitySchemes:
+    OAuthToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization: OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'

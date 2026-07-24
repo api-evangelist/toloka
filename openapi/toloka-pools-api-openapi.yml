@@ -1,0 +1,276 @@
+openapi: 3.0.1
+info:
+  title: Toloka Assignments Pools API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  termsOfService: https://toloka.ai/legal/terms_of_service/
+  contact:
+    name: Toloka Support
+    email: support@toloka.ai
+  version: '1.0'
+servers:
+- url: https://api.toloka.ai/api
+  description: Toloka production API (api.toloka.ai)
+- url: https://toloka.dev/api
+  description: Toloka production API (toloka.dev)
+security:
+- OAuthToken: []
+tags:
+- name: Pools
+  description: Create, configure, open, and close pools of tasks for Tolokers.
+paths:
+  /v1/pools:
+    get:
+      operationId: getPools
+      tags:
+      - Pools
+      summary: Get the list of pools
+      parameters:
+      - name: project_id
+        in: query
+        schema:
+          type: string
+        description: Return pools belonging to this project.
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - OPEN
+          - CLOSED
+          - ARCHIVED
+          - LOCKED
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/SortField'
+      responses:
+        '200':
+          description: A page of pools.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PoolSearchResult'
+    post:
+      operationId: createPool
+      tags:
+      - Pools
+      summary: Create a pool
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pool'
+      responses:
+        '201':
+          description: The created pool.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pool'
+  /v1/pools/{id}:
+    get:
+      operationId: getPool
+      tags:
+      - Pools
+      summary: Get a pool
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The requested pool.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pool'
+    put:
+      operationId: updatePool
+      tags:
+      - Pools
+      summary: Edit a pool
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pool'
+      responses:
+        '200':
+          description: The updated pool.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pool'
+  /v1/pools/{id}/open:
+    post:
+      operationId: openPool
+      tags:
+      - Pools
+      summary: Open a pool
+      description: Start showing the pool's tasks to Tolokers.
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '202':
+          description: An asynchronous open operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /v1/pools/{id}/close:
+    post:
+      operationId: closePool
+      tags:
+      - Pools
+      summary: Close a pool
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '202':
+          description: An asynchronous close operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /v1/pools/{id}/archive:
+    post:
+      operationId: archivePool
+      tags:
+      - Pools
+      summary: Archive a pool
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '202':
+          description: An asynchronous archive operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+    SortField:
+      name: sort
+      in: query
+      schema:
+        type: string
+      description: Comma-separated sort fields; prefix with `-` for descending.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+  schemas:
+    PoolSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pool'
+        has_more:
+          type: boolean
+    Pool:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        project_id:
+          type: string
+        private_name:
+          type: string
+        may_contain_adult_content:
+          type: boolean
+        reward_per_assignment:
+          type: number
+          description: Payment in US dollars for one completed task suite.
+        assignment_max_duration_seconds:
+          type: integer
+        defaults:
+          type: object
+          properties:
+            default_overlap_for_new_task_suites:
+              type: integer
+            default_overlap_for_new_tasks:
+              type: integer
+        will_expire:
+          type: string
+          format: date-time
+        auto_close_after_complete_delay_seconds:
+          type: integer
+        filter:
+          type: object
+          additionalProperties: true
+          description: Conditions controlling which Tolokers can access the pool.
+        quality_control:
+          type: object
+          additionalProperties: true
+        status:
+          type: string
+          enum:
+          - OPEN
+          - CLOSED
+          - ARCHIVED
+          - LOCKED
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - project_id
+      - private_name
+      - reward_per_assignment
+      - assignment_max_duration_seconds
+      - defaults
+      - will_expire
+    Operation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - SUCCESS
+          - FAIL
+        submitted:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        progress:
+          type: integer
+        parameters:
+          type: object
+          additionalProperties: true
+        details:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    OAuthToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization: OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'

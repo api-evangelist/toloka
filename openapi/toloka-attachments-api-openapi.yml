@@ -1,0 +1,130 @@
+openapi: 3.0.1
+info:
+  title: Toloka Assignments Attachments API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  termsOfService: https://toloka.ai/legal/terms_of_service/
+  contact:
+    name: Toloka Support
+    email: support@toloka.ai
+  version: '1.0'
+servers:
+- url: https://api.toloka.ai/api
+  description: Toloka production API (api.toloka.ai)
+- url: https://toloka.dev/api
+  description: Toloka production API (toloka.dev)
+security:
+- OAuthToken: []
+tags:
+- name: Attachments
+  description: Retrieve files Tolokers attached to their assignments.
+paths:
+  /v1/attachments:
+    get:
+      operationId: getAttachments
+      tags:
+      - Attachments
+      summary: Get the list of attachments
+      parameters:
+      - name: pool_id
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A page of attachment metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentSearchResult'
+  /v1/attachments/{id}:
+    get:
+      operationId: getAttachment
+      tags:
+      - Attachments
+      summary: Get attachment metadata
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The requested attachment metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attachment'
+  /v1/attachments/{id}/download:
+    get:
+      operationId: downloadAttachment
+      tags:
+      - Attachments
+      summary: Download an attachment
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The attachment file.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+  schemas:
+    Attachment:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        attachment_type:
+          type: string
+          enum:
+          - ASSIGNMENT_ATTACHMENT
+        name:
+          type: string
+        details:
+          type: object
+          properties:
+            user_id:
+              type: string
+            assignment_id:
+              type: string
+            pool_id:
+              type: string
+        media_type:
+          type: string
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+    AttachmentSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        has_more:
+          type: boolean
+  securitySchemes:
+    OAuthToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization: OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'

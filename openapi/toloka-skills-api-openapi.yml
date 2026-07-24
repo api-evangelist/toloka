@@ -1,0 +1,151 @@
+openapi: 3.0.1
+info:
+  title: Toloka Assignments Skills API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  termsOfService: https://toloka.ai/legal/terms_of_service/
+  contact:
+    name: Toloka Support
+    email: support@toloka.ai
+  version: '1.0'
+servers:
+- url: https://api.toloka.ai/api
+  description: Toloka production API (api.toloka.ai)
+- url: https://toloka.dev/api
+  description: Toloka production API (toloka.dev)
+security:
+- OAuthToken: []
+tags:
+- name: Skills
+  description: Create and manage skills assigned to Tolokers.
+paths:
+  /v1/skills:
+    get:
+      operationId: getSkills
+      tags:
+      - Skills
+      summary: Get the list of skills
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A page of skills.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkillSearchResult'
+    post:
+      operationId: createSkill
+      tags:
+      - Skills
+      summary: Create a skill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Skill'
+      responses:
+        '201':
+          description: The created skill.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skill'
+  /v1/user-skills:
+    post:
+      operationId: setUserSkill
+      tags:
+      - Skills
+      summary: Assign a skill value to a Toloker
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - user_id
+              - skill_id
+              - value
+              properties:
+                user_id:
+                  type: string
+                skill_id:
+                  type: string
+                value:
+                  type: number
+      responses:
+        '201':
+          description: The assigned user skill.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSkill'
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+  schemas:
+    Skill:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        private_comment:
+          type: string
+        hidden:
+          type: boolean
+        skill_ttl_hours:
+          type: integer
+        training:
+          type: boolean
+        public_requester_description:
+          type: object
+          additionalProperties:
+            type: string
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - name
+    SkillSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+        has_more:
+          type: boolean
+    UserSkill:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        user_id:
+          type: string
+        skill_id:
+          type: string
+        value:
+          type: number
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    OAuthToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization: OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'

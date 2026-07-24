@@ -1,0 +1,163 @@
+openapi: 3.0.1
+info:
+  title: Toloka Assignments Webhook Subscriptions API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  termsOfService: https://toloka.ai/legal/terms_of_service/
+  contact:
+    name: Toloka Support
+    email: support@toloka.ai
+  version: '1.0'
+servers:
+- url: https://api.toloka.ai/api
+  description: Toloka production API (api.toloka.ai)
+- url: https://toloka.dev/api
+  description: Toloka production API (toloka.dev)
+security:
+- OAuthToken: []
+tags:
+- name: Webhook Subscriptions
+  description: Subscribe to platform events delivered to your endpoint.
+paths:
+  /v1/webhook-subscriptions:
+    get:
+      operationId: getWebhookSubscriptions
+      tags:
+      - Webhook Subscriptions
+      summary: Get the list of webhook subscriptions
+      parameters:
+      - name: pool_id
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A page of webhook subscriptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscriptionSearchResult'
+    put:
+      operationId: upsertWebhookSubscriptions
+      tags:
+      - Webhook Subscriptions
+      summary: Create webhook subscriptions
+      description: Subscribe to platform events (e.g. POOL_CLOSED, ASSIGNMENT_CREATED, ASSIGNMENT_SUBMITTED, ASSIGNMENT_APPROVED, ASSIGNMENT_REJECTED). Add a secret_key to receive a signed Toloka-Signature header (HMAC SHA256).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/WebhookSubscription'
+              - type: array
+                items:
+                  $ref: '#/components/schemas/WebhookSubscription'
+      responses:
+        '201':
+          description: The created subscription(s).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscriptionBatchResult'
+  /v1/webhook-subscriptions/{id}:
+    get:
+      operationId: getWebhookSubscription
+      tags:
+      - Webhook Subscriptions
+      summary: Get a webhook subscription
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The requested subscription.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscription'
+    delete:
+      operationId: deleteWebhookSubscription
+      tags:
+      - Webhook Subscriptions
+      summary: Delete a webhook subscription
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '204':
+          description: The subscription was deleted.
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+  schemas:
+    WebhookSubscription:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        webhook_url:
+          type: string
+          format: uri
+        event_type:
+          type: string
+          enum:
+          - POOL_CLOSED
+          - DYNAMIC_OVERLAP_COMPLETED
+          - ASSIGNMENT_CREATED
+          - ASSIGNMENT_SUBMITTED
+          - ASSIGNMENT_SKIPPED
+          - ASSIGNMENT_EXPIRED
+          - ASSIGNMENT_APPROVED
+          - ASSIGNMENT_REJECTED
+        pool_id:
+          type: string
+        secret_key:
+          type: string
+          description: Used to sign notifications with an HMAC SHA256 Toloka-Signature header.
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - webhook_url
+      - event_type
+      - pool_id
+    WebhookSubscriptionBatchResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WebhookSubscription'
+        validation_errors:
+          type: object
+          additionalProperties: true
+    WebhookSubscriptionSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+        has_more:
+          type: boolean
+  securitySchemes:
+    OAuthToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization: OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'

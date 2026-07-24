@@ -1,0 +1,236 @@
+openapi: 3.0.1
+info:
+  title: Toloka Assignments Tasks API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  termsOfService: https://toloka.ai/legal/terms_of_service/
+  contact:
+    name: Toloka Support
+    email: support@toloka.ai
+  version: '1.0'
+servers:
+- url: https://api.toloka.ai/api
+  description: Toloka production API (api.toloka.ai)
+- url: https://toloka.dev/api
+  description: Toloka production API (toloka.dev)
+security:
+- OAuthToken: []
+tags:
+- name: Tasks
+  description: Upload and retrieve individual tasks.
+paths:
+  /v1/tasks:
+    get:
+      operationId: getTasks
+      tags:
+      - Tasks
+      summary: Get the list of tasks
+      parameters:
+      - name: pool_id
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A page of tasks.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskSearchResult'
+    post:
+      operationId: createTasks
+      tags:
+      - Tasks
+      summary: Create tasks
+      description: Create one task or a batch of tasks. Up to 100,000 tasks per minute and 2,000,000 tasks per day. With async_mode=true an Operation is returned.
+      parameters:
+      - $ref: '#/components/parameters/AsyncMode'
+      - name: allow_defaults
+        in: query
+        schema:
+          type: boolean
+        description: Use pool defaults for overlap when not set on a task.
+      - name: skip_invalid_items
+        in: query
+        schema:
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/Task'
+              - type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: The created task(s).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskBatchResult'
+        '202':
+          description: An asynchronous task-creation operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /v1/tasks/{id}:
+    get:
+      operationId: getTask
+      tags:
+      - Tasks
+      summary: Get a task
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: The requested task.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+    patch:
+      operationId: patchTask
+      tags:
+      - Tasks
+      summary: Edit a task
+      description: Change a task's overlap or infinite_overlap.
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                overlap:
+                  type: integer
+                infinite_overlap:
+                  type: boolean
+      responses:
+        '200':
+          description: The updated task.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    AsyncMode:
+      name: async_mode
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: When true, the request runs asynchronously and returns an Operation.
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        input_values:
+          type: object
+          additionalProperties: true
+          description: Input data matching the project's input_spec.
+        known_solutions:
+          type: array
+          items:
+            type: object
+            properties:
+              output_values:
+                type: object
+                additionalProperties: true
+              correctness_weight:
+                type: number
+        overlap:
+          type: integer
+        infinite_overlap:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - input_values
+    Operation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - SUCCESS
+          - FAIL
+        submitted:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        progress:
+          type: integer
+        parameters:
+          type: object
+          additionalProperties: true
+        details:
+          type: object
+          additionalProperties: true
+    TaskSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        has_more:
+          type: boolean
+    TaskBatchResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Task'
+        validation_errors:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    OAuthToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your Toloka OAuth token (or API key) in the Authorization header as `Authorization: OAuth <token>` (legacy) or `Authorization: ApiKey <key>`.'
