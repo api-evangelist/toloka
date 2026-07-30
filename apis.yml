@@ -7,7 +7,20 @@ description: Toloka is a data-labeling and human-data platform that powers human
   create projects, configure pools of crowdsourced tasks, upload tasks and task suites,
   collect and review Toloker responses, and track asynchronous operations, with a
   companion toloka-kit Python SDK.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/toloka.png
 tags:
 - Data Labeling
 - Crowdsourcing
@@ -18,120 +31,294 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: toloka:projects
-  name: Toloka Projects API
-  tags:
-  - Projects
-  - Task Specification
-  - Configuration
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://toloka.ai/docs/api/api-reference/
-  baseURL: https://api.toloka.ai/api/v1
-  properties:
-  - url: https://toloka.ai/docs/api/
-    type: Documentation
-  - url: https://toloka.ai/docs/api/api-reference/
-    type: APIReference
-  - url: openapi/toloka-openapi.yml
-    type: OpenAPI
-  - url: collections/toloka.postman_collection.json
-    type: PostmanCollection
-  - url: https://github.com/Toloka/toloka-kit
-    type: GitHub
-  description: Create, edit, list, and archive projects that define the task input/output
-    schema, Toloker interface, and instructions shared across pools.
-- aid: toloka:pools
-  name: Toloka Pools API
-  tags:
-  - Pools
-  - Training
-  - Quality Control
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://toloka.ai/docs/api/api-reference/
-  baseURL: https://api.toloka.ai/api/v1
-  properties:
-  - url: https://toloka.ai/docs/api/
-    type: Documentation
-  - url: https://toloka.ai/docs/api/api-reference/
-    type: APIReference
-  - url: openapi/toloka-openapi.yml
-    type: OpenAPI
-  - url: collections/toloka.postman_collection.json
-    type: PostmanCollection
-  - url: https://github.com/Toloka/toloka-kit
-    type: GitHub
-  description: Create and configure pools and training pools, set rewards, filters,
-    and quality control, then open, close, and archive them to control when Tolokers
-    see tasks.
-- aid: toloka:tasks-task-suites
-  name: Toloka Tasks & Task Suites API
-  tags:
-  - Tasks
-  - Task Suites
-  - Batch Upload
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://toloka.ai/docs/api/api-reference/
-  baseURL: https://api.toloka.ai/api/v1
-  properties:
-  - url: https://toloka.ai/docs/api/concepts/upload-tasks
-    type: Documentation
-  - url: https://toloka.ai/docs/api/api-reference/
-    type: APIReference
-  - url: openapi/toloka-openapi.yml
-    type: OpenAPI
-  - url: collections/toloka.postman_collection.json
-    type: PostmanCollection
-  - url: https://github.com/Toloka/toloka-kit
-    type: GitHub
-  description: Upload individual tasks or batches and group them into task suites,
-    with overlap settings, known solutions for quality control, and asynchronous
-    batch creation for large volumes.
-- aid: toloka:assignments
+- aid: toloka:toloka-assignments-api
   name: Toloka Assignments API
+  description: Retrieve Toloker responses and accept or reject completed assignments.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
   tags:
   - Assignments
-  - Responses
-  - Review
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-assignments-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-attachments-api
+  name: Toloka Attachments API
+  description: Retrieve files Tolokers attached to their assignments.
   humanURL: https://toloka.ai/docs/api/api-reference/
   baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - Attachments
   properties:
-  - url: https://toloka.ai/docs/api/concepts/get-response
-    type: Documentation
-  - url: https://toloka.ai/docs/api/api-reference/
-    type: APIReference
-  - url: openapi/toloka-openapi.yml
-    type: OpenAPI
-  - url: collections/toloka.postman_collection.json
-    type: PostmanCollection
-  - url: https://github.com/Toloka/toloka-kit
-    type: GitHub
-  description: Retrieve Toloker responses filtered by pool, status, and user, then
-    accept or reject completed assignments and issue bonuses, restrictions, and
-    skills off the results.
-- aid: toloka:operations
-  name: Toloka Operations & Webhooks API
+  - type: OpenAPI
+    url: openapi/toloka-attachments-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-operations-api
+  name: Toloka Operations API
+  description: Track the status of asynchronous operations.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
   tags:
   - Operations
-  - Webhooks
-  - Async
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-operations-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-pools-api
+  name: Toloka Pools API
+  description: Create, configure, open, and close pools of tasks for Tolokers.
   humanURL: https://toloka.ai/docs/api/api-reference/
   baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - Pools
   properties:
-  - url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
-    type: Documentation
-  - url: https://toloka.ai/docs/api/api-reference/
-    type: APIReference
-  - url: openapi/toloka-openapi.yml
-    type: OpenAPI
-  - url: collections/toloka.postman_collection.json
-    type: PostmanCollection
-  - url: https://github.com/Toloka/toloka-kit
-    type: GitHub
-  description: Poll the status of asynchronous operations returned by batch and pool
-    actions, and manage webhook subscriptions that push pool and assignment events
-    to your endpoint with HMAC SHA256 signed notifications.
+  - type: OpenAPI
+    url: openapi/toloka-pools-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-projects-api
+  name: Toloka Projects API
+  description: Create and manage projects that define task interface and instructions.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-projects-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-skills-api
+  name: Toloka Skills API
+  description: Create and manage skills assigned to Tolokers.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - Skills
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-skills-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-task-suites-api
+  name: Toloka Task Suites API
+  description: Upload and retrieve task suites (groups of tasks shown together).
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - Task Suites
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-task-suites-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-tasks-api
+  name: Toloka Tasks API
+  description: Upload and retrieve individual tasks.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-training-api
+  name: Toloka Training API
+  description: Create and manage training pools used to qualify Tolokers.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - Training
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-training-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-user-bonuses-api
+  name: Toloka User Bonuses API
+  description: Issue bonus payments to Tolokers.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - User Bonuses
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-user-bonuses-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-user-restrictions-api
+  name: Toloka User Restrictions API
+  description: Restrict Tolokers from a pool, project, or all projects.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - User Restrictions
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-user-restrictions-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
+- aid: toloka:toloka-webhook-subscriptions-api
+  name: Toloka Webhook Subscriptions API
+  description: Subscribe to platform events delivered to your endpoint.
+  humanURL: https://toloka.ai/docs/api/api-reference/
+  baseURL: https://api.toloka.ai/api/v1
+  tags:
+  - Webhook Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/toloka-webhook-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://toloka.ai/docs/api/
+  - type: APIReference
+    url: https://toloka.ai/docs/api/api-reference/
+  - type: PostmanCollection
+    url: collections/toloka.postman_collection.json
+  - type: GitHub
+    url: https://github.com/Toloka/toloka-kit
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/upload-tasks
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/get-response
+  - type: Documentation
+    url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
 common:
 - type: AgenticAccess
   url: agentic-access/toloka-agentic-access.yml
