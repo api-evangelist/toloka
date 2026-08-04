@@ -1,0 +1,36 @@
+{
+  "provider": "toloka",
+  "sources": [
+    "toloka-assignments-api-openapi.yml",
+    "toloka-attachments-api-openapi.yml",
+    "toloka-operations-api-openapi.yml",
+    "toloka-pools-api-openapi.yml",
+    "toloka-projects-api-openapi.yml",
+    "toloka-skills-api-openapi.yml",
+    "toloka-task-suites-api-openapi.yml",
+    "toloka-tasks-api-openapi.yml",
+    "toloka-training-api-openapi.yml",
+    "toloka-user-bonuses-api-openapi.yml",
+    "toloka-user-restrictions-api-openapi.yml",
+    "toloka-webhook-subscriptions-api-openapi.yml"
+  ],
+  "outputs": [
+    "toloka-assignments-api-openapi.yml",
+    "toloka-attachments-api-openapi.yml",
+    "toloka-operations-api-openapi.yml",
+    "toloka-pools-api-openapi.yml",
+    "toloka-projects-api-openapi.yml",
+    "toloka-skills-api-openapi.yml",
+    "toloka-task-suites-api-openapi.yml",
+    "toloka-tasks-api-openapi.yml",
+    "toloka-training-api-openapi.yml",
+    "toloka-user-bonuses-api-openapi.yml",
+    "toloka-user-restrictions-api-openapi.yml",
+    "toloka-webhook-subscriptions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
