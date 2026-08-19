@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments Tasks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/tasks",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results per page."
+              }
+            ]
+          },
+          "docs": "Get the list of tasks"
+        },
+        {
+          "info": {
+            "name": "Create tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/tasks",
+            "params": [
+              {
+                "name": "async_mode",
+                "value": "",
+                "type": "query",
+                "description": "When true, the request runs asynchronously and returns an Operation."
+              },
+              {
+                "name": "allow_defaults",
+                "value": "",
+                "type": "query",
+                "description": "Use pool defaults for overlap when not set on a task."
+              },
+              {
+                "name": "skip_invalid_items",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create one task or a batch of tasks. Up to 100,000 tasks per minute and 2,000,000 tasks per day. With async_mode=true an Operation is returned."
+        },
+        {
+          "info": {
+            "name": "Get a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Get a task"
+        },
+        {
+          "info": {
+            "name": "Edit a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.toloka.ai/api/v1/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change a task's overlap or infinite_overlap."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

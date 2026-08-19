@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments Task Suites API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Task Suites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of task suites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/task-suites",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results per page."
+              }
+            ]
+          },
+          "docs": "Get the list of task suites"
+        },
+        {
+          "info": {
+            "name": "Create task suites",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/task-suites",
+            "params": [
+              {
+                "name": "async_mode",
+                "value": "",
+                "type": "query",
+                "description": "When true, the request runs asynchronously and returns an Operation."
+              },
+              {
+                "name": "skip_invalid_items",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create one or many task suites. Supports async_mode for batches."
+        },
+        {
+          "info": {
+            "name": "Get a task suite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/task-suites/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Get a task suite"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments Projects API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/projects",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results per page."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated sort fields; prefix with `-` for descending."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter projects by status."
+              }
+            ]
+          },
+          "docs": "Get the list of projects"
+        },
+        {
+          "info": {
+            "name": "Create a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a project"
+        },
+        {
+          "info": {
+            "name": "Get a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Get a project"
+        },
+        {
+          "info": {
+            "name": "Edit a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.toloka.ai/api/v1/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit a project"
+        },
+        {
+          "info": {
+            "name": "Archive a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/projects/:id/archive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Archive a project"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

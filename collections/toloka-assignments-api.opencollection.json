@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assignments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/assignments",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results per page."
+              }
+            ]
+          },
+          "docs": "Retrieve Toloker responses, optionally filtered by pool and status."
+        },
+        {
+          "info": {
+            "name": "Get an assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/assignments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Get an assignment"
+        },
+        {
+          "info": {
+            "name": "Accept or reject an assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.toloka.ai/api/v1/assignments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set status to ACCEPTED or REJECTED, with a public comment for the Toloker."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

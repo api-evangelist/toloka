@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments Attachments API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/attachments",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results per page."
+              }
+            ]
+          },
+          "docs": "Get the list of attachments"
+        },
+        {
+          "info": {
+            "name": "Get attachment metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/attachments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Get attachment metadata"
+        },
+        {
+          "info": {
+            "name": "Download an attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/attachments/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Download an attachment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

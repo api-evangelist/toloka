@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments Webhook Subscriptions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhook Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of webhook subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/webhook-subscriptions",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results per page."
+              }
+            ]
+          },
+          "docs": "Get the list of webhook subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create webhook subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.toloka.ai/api/v1/webhook-subscriptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Subscribe to platform events (e.g. POOL_CLOSED, ASSIGNMENT_CREATED, ASSIGNMENT_SUBMITTED, ASSIGNMENT_APPROVED, ASSIGNMENT_REJECTED). Add a secret_key to receive a signed Toloka-Signature header (HMAC SHA256)."
+        },
+        {
+          "info": {
+            "name": "Get a webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/webhook-subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Get a webhook subscription"
+        },
+        {
+          "info": {
+            "name": "Delete a webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.toloka.ai/api/v1/webhook-subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Delete a webhook subscription"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

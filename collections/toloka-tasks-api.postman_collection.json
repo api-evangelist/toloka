@@ -1,0 +1,558 @@
+{
+  "item": [
+    {
+      "id": "5f2ed629-7999-46ac-8f96-341e35424087",
+      "name": "Tasks",
+      "description": {
+        "content": "Upload and retrieve individual tasks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3be06c18-4003-4dc2-8760-7840a376a830",
+          "name": "Get the list of tasks",
+          "request": {
+            "name": "Get the list of tasks",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2c75e55-3cb7-4715-aff6-b6d9d7307ca8",
+              "name": "A page of tasks.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"pool_id\": \"string\",\n      \"input_values\": {\n        \"key_0\": 1855.184001841249\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": false,\n            \"key_1\": 8589\n          },\n          \"correctness_weight\": 2297.0620695322195\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 197.0317897079277\n          },\n          \"correctness_weight\": 6643.364226394119\n        }\n      ],\n      \"overlap\": 6195,\n      \"infinite_overlap\": false,\n      \"created\": \"1965-11-24T09:30:19.813Z\"\n    },\n    {\n      \"pool_id\": \"string\",\n      \"input_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5498,\n        \"key_2\": true\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": 269,\n            \"key_1\": 1404.9798309805483,\n            \"key_2\": 8991\n          },\n          \"correctness_weight\": 9112.662732379984\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 7176\n          },\n          \"correctness_weight\": 7000.130019118101\n        }\n      ],\n      \"overlap\": 6319,\n      \"infinite_overlap\": false,\n      \"created\": \"2004-02-08T12:22:00.019Z\"\n    }\n  ],\n  \"has_more\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26a29469-786a-450c-b157-81d71730ff1e",
+          "name": "Create tasks",
+          "request": {
+            "name": "Create tasks",
+            "description": {
+              "content": "Create one task or a batch of tasks. Up to 100,000 tasks per minute and 2,000,000 tasks per day. With async_mode=true an Operation is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "async_mode",
+                  "value": "false",
+                  "description": "When true, the request runs asynchronously and returns an Operation."
+                },
+                {
+                  "disabled": false,
+                  "key": "allow_defaults",
+                  "value": "<boolean>",
+                  "description": "Use pool defaults for overlap when not set on a task."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip_invalid_items",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pool_id\": \"<string>\",\n  \"input_values\": {\n    \"key_0\": 3778.0524089759724,\n    \"key_1\": \"string\"\n  },\n  \"known_solutions\": [\n    {\n      \"output_values\": {\n        \"key_0\": 5136.513835870778\n      },\n      \"correctness_weight\": \"<number>\"\n    },\n    {\n      \"output_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"correctness_weight\": \"<number>\"\n    }\n  ],\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ea6129b-0fbb-4f47-b29e-39db19517baf",
+              "name": "The created task(s).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async_mode",
+                      "value": "false"
+                    },
+                    {
+                      "key": "allow_defaults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "skip_invalid_items",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pool_id\": \"<string>\",\n  \"input_values\": {\n    \"key_0\": \"string\",\n    \"key_1\": 4310.375856230802\n  },\n  \"known_solutions\": [\n    {\n      \"output_values\": {\n        \"key_0\": 8188.025325120833,\n        \"key_1\": false\n      },\n      \"correctness_weight\": \"<number>\"\n    },\n    {\n      \"output_values\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"correctness_weight\": \"<number>\"\n    }\n  ],\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": {\n    \"key_0\": {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": 8796.455338498734,\n        \"key_2\": 6583,\n        \"key_3\": 9244\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": false\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": \"string\",\n            \"key_1\": 6988\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\",\n      \"created\": \"1993-10-08T18:04:46.225Z\"\n    }\n  },\n  \"validation_errors\": {\n    \"key_0\": 4865.436578787618\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5014bce6-017d-49e6-a87e-20aab9686636",
+              "name": "An asynchronous task-creation operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async_mode",
+                      "value": "false"
+                    },
+                    {
+                      "key": "allow_defaults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "skip_invalid_items",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pool_id\": \"<string>\",\n  \"input_values\": {\n    \"key_0\": \"string\",\n    \"key_1\": 4310.375856230802\n  },\n  \"known_solutions\": [\n    {\n      \"output_values\": {\n        \"key_0\": 8188.025325120833,\n        \"key_1\": false\n      },\n      \"correctness_weight\": \"<number>\"\n    },\n    {\n      \"output_values\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"correctness_weight\": \"<number>\"\n    }\n  ],\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"SUCCESS\",\n  \"submitted\": \"1975-08-03T01:27:23.515Z\",\n  \"started\": \"2007-12-04T19:10:45.853Z\",\n  \"finished\": \"1976-11-09T12:29:02.433Z\",\n  \"progress\": 4037,\n  \"parameters\": {\n    \"key_0\": 2113.721219458128\n  },\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": false,\n    \"key_2\": 3559\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd6cfcd2-9111-48ef-abe5-7eccaad3492b",
+          "name": "Get a task",
+          "request": {
+            "name": "Get a task",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "735b30a6-c735-4a99-9ef1-ef29bfb2eda2",
+              "name": "The requested task.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pool_id\": \"<string>\",\n  \"input_values\": {\n    \"key_0\": 4200.7605777590325,\n    \"key_1\": 1627,\n    \"key_2\": 9436.878759915384\n  },\n  \"id\": \"string\",\n  \"known_solutions\": [\n    {\n      \"output_values\": {\n        \"key_0\": 4407,\n        \"key_1\": true\n      },\n      \"correctness_weight\": \"<number>\"\n    },\n    {\n      \"output_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": false,\n        \"key_2\": false\n      },\n      \"correctness_weight\": \"<number>\"\n    }\n  ],\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\",\n  \"created\": \"2005-05-27T00:23:31.303Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9aada1be-a4c1-4f19-9175-82371725b6df",
+          "name": "Edit a task",
+          "request": {
+            "name": "Edit a task",
+            "description": {
+              "content": "Change a task's overlap or infinite_overlap.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "db3dc275-d904-4111-a6a8-78e83d413845",
+              "name": "The updated task.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pool_id\": \"<string>\",\n  \"input_values\": {\n    \"key_0\": 4200.7605777590325,\n    \"key_1\": 1627,\n    \"key_2\": 9436.878759915384\n  },\n  \"id\": \"string\",\n  \"known_solutions\": [\n    {\n      \"output_values\": {\n        \"key_0\": 4407,\n        \"key_1\": true\n      },\n      \"correctness_weight\": \"<number>\"\n    },\n    {\n      \"output_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": false,\n        \"key_2\": false\n      },\n      \"correctness_weight\": \"<number>\"\n    }\n  ],\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\",\n  \"created\": \"2005-05-27T00:23:31.303Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "351f2b8c-b633-4d28-aee4-44cdcb13e809",
+    "name": "Toloka Assignments Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

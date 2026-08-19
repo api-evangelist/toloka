@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments User Restrictions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Restrictions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Restrict a Toloker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/user-restrictions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restrict a Toloker"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

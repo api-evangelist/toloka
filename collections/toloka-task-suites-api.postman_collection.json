@@ -1,0 +1,425 @@
+{
+  "item": [
+    {
+      "id": "8b51aadc-f5a7-4e13-91c0-0405869c6478",
+      "name": "Task Suites",
+      "description": {
+        "content": "Upload and retrieve task suites (groups of tasks shown together).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2c1dfb2b-0c90-4ca1-93dd-9e06f975f185",
+          "name": "Get the list of task suites",
+          "request": {
+            "name": "Get the list of task suites",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "task-suites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65fde683-0a4b-44da-8d7b-807b957f018c",
+              "name": "A page of task suites.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "task-suites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"pool_id\": \"string\",\n      \"tasks\": [\n        {\n          \"pool_id\": \"string\",\n          \"input_values\": {\n            \"key_0\": 9453,\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": 1352.458861101351,\n            \"key_4\": false\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 4200.895068483457,\n                \"key_1\": 4302.926911198274\n              },\n              \"correctness_weight\": 8974.198265515828\n            },\n            {\n              \"output_values\": {\n                \"key_0\": 2997,\n                \"key_1\": 2593\n              },\n              \"correctness_weight\": 7255.785658323144\n            }\n          ],\n          \"overlap\": 1338,\n          \"infinite_overlap\": true,\n          \"created\": \"2021-12-25T17:31:32.281Z\"\n        },\n        {\n          \"pool_id\": \"string\",\n          \"input_values\": {\n            \"key_0\": 9218,\n            \"key_1\": 6408\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 9433\n              },\n              \"correctness_weight\": 7856.513002726589\n            },\n            {\n              \"output_values\": {\n                \"key_0\": true\n              },\n              \"correctness_weight\": 1362.2272639849298\n            }\n          ],\n          \"overlap\": 5996,\n          \"infinite_overlap\": true,\n          \"created\": \"1970-12-14T02:31:53.997Z\"\n        }\n      ],\n      \"id\": \"string\",\n      \"overlap\": 4877,\n      \"infinite_overlap\": true,\n      \"created\": \"2016-10-28T02:37:45.787Z\"\n    },\n    {\n      \"pool_id\": \"string\",\n      \"tasks\": [\n        {\n          \"pool_id\": \"string\",\n          \"input_values\": {\n            \"key_0\": 3694.9980105113546\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 2012\n              },\n              \"correctness_weight\": 9023.711513341681\n            },\n            {\n              \"output_values\": {\n                \"key_0\": 1211.6778943082452,\n                \"key_1\": 4180.8423683935625\n              },\n              \"correctness_weight\": 1668.6179653031109\n            }\n          ],\n          \"overlap\": 6613,\n          \"infinite_overlap\": true,\n          \"created\": \"1999-01-10T15:01:51.746Z\"\n        },\n        {\n          \"pool_id\": \"string\",\n          \"input_values\": {\n            \"key_0\": true,\n            \"key_1\": \"string\"\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": true,\n                \"key_1\": 9253.305631141831\n              },\n              \"correctness_weight\": 5216.61704106194\n            },\n            {\n              \"output_values\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": 327\n              },\n              \"correctness_weight\": 5670.308428456573\n            }\n          ],\n          \"overlap\": 5027,\n          \"infinite_overlap\": true,\n          \"created\": \"1978-10-20T03:28:24.858Z\"\n        }\n      ],\n      \"id\": \"string\",\n      \"overlap\": 4230,\n      \"infinite_overlap\": true,\n      \"created\": \"1964-09-28T04:34:17.856Z\"\n    }\n  ],\n  \"has_more\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d745e287-2daa-40b0-be95-4fa1e6503678",
+          "name": "Create task suites",
+          "request": {
+            "name": "Create task suites",
+            "description": {
+              "content": "Create one or many task suites. Supports async_mode for batches.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "task-suites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "async_mode",
+                  "value": "false",
+                  "description": "When true, the request runs asynchronously and returns an Operation."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip_invalid_items",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pool_id\": \"<string>\",\n  \"tasks\": [\n    {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": 9625,\n        \"key_1\": \"string\"\n      },\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": 4221,\n            \"key_1\": 7050.7195186195,\n            \"key_2\": false\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 5607,\n            \"key_1\": 3811\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\"\n    },\n    {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": 4067.1832872602663\n      },\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": \"string\"\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 8793,\n            \"key_1\": 5869\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\"\n    }\n  ],\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b7fa202-5d8e-4c85-9607-d8e7dedfd5d5",
+              "name": "The created task suite(s).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "task-suites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async_mode",
+                      "value": "false"
+                    },
+                    {
+                      "key": "skip_invalid_items",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pool_id\": \"<string>\",\n  \"tasks\": [\n    {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": 7957.815667576024\n      },\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": 5875.9569315889985,\n            \"key_1\": 3116.7513503536616\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 7678,\n            \"key_1\": 2654.9781780136273,\n            \"key_2\": 1620,\n            \"key_3\": \"string\"\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\"\n    },\n    {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": 1621,\n        \"key_1\": \"string\"\n      },\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": 2931,\n            \"key_1\": 4871,\n            \"key_2\": 8038\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": \"string\",\n            \"key_1\": true\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\"\n    }\n  ],\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": {\n    \"key_0\": {\n      \"pool_id\": \"<string>\",\n      \"tasks\": [\n        {\n          \"pool_id\": \"<string>\",\n          \"input_values\": {\n            \"key_0\": 3191.4250434815326\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 1286.2045836178381,\n                \"key_1\": 2983\n              },\n              \"correctness_weight\": \"<number>\"\n            },\n            {\n              \"output_values\": {\n                \"key_0\": 9737,\n                \"key_1\": \"string\"\n              },\n              \"correctness_weight\": \"<number>\"\n            }\n          ],\n          \"overlap\": \"<integer>\",\n          \"infinite_overlap\": \"<boolean>\",\n          \"created\": \"1989-08-25T01:24:57.335Z\"\n        },\n        {\n          \"pool_id\": \"<string>\",\n          \"input_values\": {\n            \"key_0\": \"string\"\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 1363.0306402082083,\n                \"key_1\": \"string\",\n                \"key_2\": 4157.391278245679\n              },\n              \"correctness_weight\": \"<number>\"\n            },\n            {\n              \"output_values\": {\n                \"key_0\": \"string\"\n              },\n              \"correctness_weight\": \"<number>\"\n            }\n          ],\n          \"overlap\": \"<integer>\",\n          \"infinite_overlap\": \"<boolean>\",\n          \"created\": \"1957-08-18T12:53:13.531Z\"\n        }\n      ],\n      \"id\": \"string\",\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\",\n      \"created\": \"1947-08-22T01:09:51.755Z\"\n    },\n    \"key_1\": {\n      \"pool_id\": \"<string>\",\n      \"tasks\": [\n        {\n          \"pool_id\": \"<string>\",\n          \"input_values\": {\n            \"key_0\": true,\n            \"key_1\": \"string\"\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 722.4628745279826,\n                \"key_1\": \"string\"\n              },\n              \"correctness_weight\": \"<number>\"\n            },\n            {\n              \"output_values\": {\n                \"key_0\": false\n              },\n              \"correctness_weight\": \"<number>\"\n            }\n          ],\n          \"overlap\": \"<integer>\",\n          \"infinite_overlap\": \"<boolean>\",\n          \"created\": \"2012-09-26T01:45:07.336Z\"\n        },\n        {\n          \"pool_id\": \"<string>\",\n          \"input_values\": {\n            \"key_0\": false,\n            \"key_1\": false\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 2607\n              },\n              \"correctness_weight\": \"<number>\"\n            },\n            {\n              \"output_values\": {\n                \"key_0\": 4144.02693844898\n              },\n              \"correctness_weight\": \"<number>\"\n            }\n          ],\n          \"overlap\": \"<integer>\",\n          \"infinite_overlap\": \"<boolean>\",\n          \"created\": \"2016-12-16T19:11:42.368Z\"\n        }\n      ],\n      \"id\": \"string\",\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\",\n      \"created\": \"1990-08-24T13:51:00.145Z\"\n    },\n    \"key_2\": {\n      \"pool_id\": \"<string>\",\n      \"tasks\": [\n        {\n          \"pool_id\": \"<string>\",\n          \"input_values\": {\n            \"key_0\": false,\n            \"key_1\": 473,\n            \"key_2\": 4525.648890707259\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 8632,\n                \"key_1\": 8183.566343345617\n              },\n              \"correctness_weight\": \"<number>\"\n            },\n            {\n              \"output_values\": {\n                \"key_0\": false\n              },\n              \"correctness_weight\": \"<number>\"\n            }\n          ],\n          \"overlap\": \"<integer>\",\n          \"infinite_overlap\": \"<boolean>\",\n          \"created\": \"1953-10-02T05:13:09.275Z\"\n        },\n        {\n          \"pool_id\": \"<string>\",\n          \"input_values\": {\n            \"key_0\": 1036,\n            \"key_1\": 4553\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": false,\n                \"key_1\": 2845.001235510901,\n                \"key_2\": 7635.474326170795\n              },\n              \"correctness_weight\": \"<number>\"\n            },\n            {\n              \"output_values\": {\n                \"key_0\": \"string\"\n              },\n              \"correctness_weight\": \"<number>\"\n            }\n          ],\n          \"overlap\": \"<integer>\",\n          \"infinite_overlap\": \"<boolean>\",\n          \"created\": \"2025-05-31T10:49:45.848Z\"\n        }\n      ],\n      \"id\": \"string\",\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\",\n      \"created\": \"1997-11-21T12:37:39.949Z\"\n    }\n  },\n  \"validation_errors\": {\n    \"key_0\": false,\n    \"key_1\": 7492.867491997822\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ef03225-332e-46dd-a872-495082925438",
+              "name": "An asynchronous task-suite-creation operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "task-suites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async_mode",
+                      "value": "false"
+                    },
+                    {
+                      "key": "skip_invalid_items",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pool_id\": \"<string>\",\n  \"tasks\": [\n    {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": 7957.815667576024\n      },\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": 5875.9569315889985,\n            \"key_1\": 3116.7513503536616\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 7678,\n            \"key_1\": 2654.9781780136273,\n            \"key_2\": 1620,\n            \"key_3\": \"string\"\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\"\n    },\n    {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": 1621,\n        \"key_1\": \"string\"\n      },\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": 2931,\n            \"key_1\": 4871,\n            \"key_2\": 8038\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": \"string\",\n            \"key_1\": true\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\"\n    }\n  ],\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"SUCCESS\",\n  \"submitted\": \"1964-06-09T16:38:52.847Z\",\n  \"started\": \"2012-02-16T11:43:48.619Z\",\n  \"finished\": \"2013-08-20T07:04:28.542Z\",\n  \"progress\": 2960,\n  \"parameters\": {\n    \"key_0\": 813\n  },\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15c07540-23bf-4c1b-8387-3a881b747a80",
+          "name": "Get a task suite",
+          "request": {
+            "name": "Get a task suite",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "task-suites",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f261dc4b-a72b-4feb-9829-a7b763c365ee",
+              "name": "The requested task suite.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "task-suites",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pool_id\": \"<string>\",\n  \"tasks\": [\n    {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": true\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": 4766.561586488796,\n            \"key_1\": true\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": \"string\"\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\",\n      \"created\": \"1976-10-04T03:10:51.037Z\"\n    },\n    {\n      \"pool_id\": \"<string>\",\n      \"input_values\": {\n        \"key_0\": true\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": 1310,\n            \"key_1\": \"string\"\n          },\n          \"correctness_weight\": \"<number>\"\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 546\n          },\n          \"correctness_weight\": \"<number>\"\n        }\n      ],\n      \"overlap\": \"<integer>\",\n      \"infinite_overlap\": \"<boolean>\",\n      \"created\": \"1969-01-29T04:00:16.918Z\"\n    }\n  ],\n  \"id\": \"string\",\n  \"overlap\": \"<integer>\",\n  \"infinite_overlap\": \"<boolean>\",\n  \"created\": \"1998-06-14T12:33:34.197Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ed08b958-1e58-4612-9bd0-babbac2eeb86",
+    "name": "Toloka Assignments Task Suites API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments Pools API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of pools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/pools",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Return pools belonging to this project."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results per page."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated sort fields; prefix with `-` for descending."
+              }
+            ]
+          },
+          "docs": "Get the list of pools"
+        },
+        {
+          "info": {
+            "name": "Create a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/pools",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a pool"
+        },
+        {
+          "info": {
+            "name": "Get a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toloka.ai/api/v1/pools/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Get a pool"
+        },
+        {
+          "info": {
+            "name": "Edit a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.toloka.ai/api/v1/pools/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit a pool"
+        },
+        {
+          "info": {
+            "name": "Open a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/pools/:id/open",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Start showing the pool's tasks to Tolokers."
+        },
+        {
+          "info": {
+            "name": "Close a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/pools/:id/close",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Close a pool"
+        },
+        {
+          "info": {
+            "name": "Archive a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/pools/:id/archive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Object identifier."
+              }
+            ]
+          },
+          "docs": "Archive a pool"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

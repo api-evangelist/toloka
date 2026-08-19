@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Toloka Assignments User Bonuses API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Bonuses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Issue bonuses to Tolokers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toloka.ai/api/v1/user-bonuses",
+            "params": [
+              {
+                "name": "async_mode",
+                "value": "",
+                "type": "query",
+                "description": "When true, the request runs asynchronously and returns an Operation."
+              },
+              {
+                "name": "skip_invalid_items",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Issue bonuses to Tolokers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

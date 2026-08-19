@@ -1,0 +1,770 @@
+{
+  "item": [
+    {
+      "id": "62e31673-f6eb-4430-a362-555f4b746aac",
+      "name": "Pools",
+      "description": {
+        "content": "Create, configure, open, and close pools of tasks for Tolokers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e56302e0-2fab-4ca4-9934-355e8a33e418",
+          "name": "Get the list of pools",
+          "request": {
+            "name": "Get the list of pools",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "pools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Return pools belonging to this project."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Comma-separated sort fields; prefix with `-` for descending."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d14945d6-0e87-4ce1-983a-2cd71b7c36b1",
+              "name": "A page of pools.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"project_id\": \"string\",\n      \"private_name\": \"string\",\n      \"reward_per_assignment\": 7692.023597998731,\n      \"assignment_max_duration_seconds\": 2591,\n      \"defaults\": {\n        \"default_overlap_for_new_task_suites\": 5678,\n        \"default_overlap_for_new_tasks\": 8103\n      },\n      \"will_expire\": \"2023-09-02T21:38:09.921Z\",\n      \"id\": \"string\",\n      \"may_contain_adult_content\": false,\n      \"auto_close_after_complete_delay_seconds\": 8882,\n      \"filter\": {\n        \"key_0\": \"string\"\n      },\n      \"quality_control\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"status\": \"OPEN\",\n      \"created\": \"2021-09-22T15:41:16.424Z\"\n    },\n    {\n      \"project_id\": \"string\",\n      \"private_name\": \"string\",\n      \"reward_per_assignment\": 6197.980886838177,\n      \"assignment_max_duration_seconds\": 6481,\n      \"defaults\": {\n        \"default_overlap_for_new_task_suites\": 8579,\n        \"default_overlap_for_new_tasks\": 9653\n      },\n      \"will_expire\": \"1959-12-06T14:52:18.871Z\",\n      \"id\": \"string\",\n      \"may_contain_adult_content\": false,\n      \"auto_close_after_complete_delay_seconds\": 7284,\n      \"filter\": {\n        \"key_0\": 6508.492350847465\n      },\n      \"quality_control\": {\n        \"key_0\": 9631.120356773403,\n        \"key_1\": 8877\n      },\n      \"status\": \"LOCKED\",\n      \"created\": \"1996-04-21T10:49:38.772Z\"\n    }\n  ],\n  \"has_more\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6aa26465-fe48-485e-b292-ddb66f82b44e",
+          "name": "Create a pool",
+          "request": {
+            "name": "Create a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "pools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"reward_per_assignment\": \"<number>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"defaults\": {\n    \"default_overlap_for_new_task_suites\": \"<integer>\",\n    \"default_overlap_for_new_tasks\": \"<integer>\"\n  },\n  \"will_expire\": \"<dateTime>\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"auto_close_after_complete_delay_seconds\": \"<integer>\",\n  \"filter\": {\n    \"key_0\": true\n  },\n  \"quality_control\": {\n    \"key_0\": \"string\",\n    \"key_1\": 30.52136268683614\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "205b9e09-2374-4254-a4bb-59d50e144511",
+              "name": "The created pool.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"reward_per_assignment\": \"<number>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"defaults\": {\n    \"default_overlap_for_new_task_suites\": \"<integer>\",\n    \"default_overlap_for_new_tasks\": \"<integer>\"\n  },\n  \"will_expire\": \"<dateTime>\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"auto_close_after_complete_delay_seconds\": \"<integer>\",\n  \"filter\": {\n    \"key_0\": 1316.1521353225914,\n    \"key_1\": \"string\",\n    \"key_2\": 2235.3999953439406\n  },\n  \"quality_control\": {\n    \"key_0\": \"string\",\n    \"key_1\": 2259,\n    \"key_2\": \"string\",\n    \"key_3\": 2365\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"reward_per_assignment\": \"<number>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"defaults\": {\n    \"default_overlap_for_new_task_suites\": \"<integer>\",\n    \"default_overlap_for_new_tasks\": \"<integer>\"\n  },\n  \"will_expire\": \"<dateTime>\",\n  \"id\": \"string\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"auto_close_after_complete_delay_seconds\": \"<integer>\",\n  \"filter\": {\n    \"key_0\": 4265\n  },\n  \"quality_control\": {\n    \"key_0\": true,\n    \"key_1\": 4.722173238352889\n  },\n  \"status\": \"ARCHIVED\",\n  \"created\": \"1964-05-27T00:53:35.072Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7e6667d-79fe-476c-86fc-3f0ddbc12291",
+          "name": "Get a pool",
+          "request": {
+            "name": "Get a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "pools",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b3d7464-8032-44d7-a6f8-ab64158bdf33",
+              "name": "The requested pool.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pools",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"reward_per_assignment\": \"<number>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"defaults\": {\n    \"default_overlap_for_new_task_suites\": \"<integer>\",\n    \"default_overlap_for_new_tasks\": \"<integer>\"\n  },\n  \"will_expire\": \"<dateTime>\",\n  \"id\": \"string\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"auto_close_after_complete_delay_seconds\": \"<integer>\",\n  \"filter\": {\n    \"key_0\": 4265\n  },\n  \"quality_control\": {\n    \"key_0\": true,\n    \"key_1\": 4.722173238352889\n  },\n  \"status\": \"ARCHIVED\",\n  \"created\": \"1964-05-27T00:53:35.072Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4466cf4d-0545-4838-926f-9c5072af3538",
+          "name": "Edit a pool",
+          "request": {
+            "name": "Edit a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "pools",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"reward_per_assignment\": \"<number>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"defaults\": {\n    \"default_overlap_for_new_task_suites\": \"<integer>\",\n    \"default_overlap_for_new_tasks\": \"<integer>\"\n  },\n  \"will_expire\": \"<dateTime>\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"auto_close_after_complete_delay_seconds\": \"<integer>\",\n  \"filter\": {\n    \"key_0\": true\n  },\n  \"quality_control\": {\n    \"key_0\": \"string\",\n    \"key_1\": 30.52136268683614\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a88f75e-04a5-4249-901f-ea90ee7fbd55",
+              "name": "The updated pool.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pools",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"reward_per_assignment\": \"<number>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"defaults\": {\n    \"default_overlap_for_new_task_suites\": \"<integer>\",\n    \"default_overlap_for_new_tasks\": \"<integer>\"\n  },\n  \"will_expire\": \"<dateTime>\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"auto_close_after_complete_delay_seconds\": \"<integer>\",\n  \"filter\": {\n    \"key_0\": 1316.1521353225914,\n    \"key_1\": \"string\",\n    \"key_2\": 2235.3999953439406\n  },\n  \"quality_control\": {\n    \"key_0\": \"string\",\n    \"key_1\": 2259,\n    \"key_2\": \"string\",\n    \"key_3\": 2365\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"reward_per_assignment\": \"<number>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"defaults\": {\n    \"default_overlap_for_new_task_suites\": \"<integer>\",\n    \"default_overlap_for_new_tasks\": \"<integer>\"\n  },\n  \"will_expire\": \"<dateTime>\",\n  \"id\": \"string\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"auto_close_after_complete_delay_seconds\": \"<integer>\",\n  \"filter\": {\n    \"key_0\": 4265\n  },\n  \"quality_control\": {\n    \"key_0\": true,\n    \"key_1\": 4.722173238352889\n  },\n  \"status\": \"ARCHIVED\",\n  \"created\": \"1964-05-27T00:53:35.072Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18bcca8b-49d1-45dc-9975-2dfc3993ee73",
+          "name": "Open a pool",
+          "request": {
+            "name": "Open a pool",
+            "description": {
+              "content": "Start showing the pool's tasks to Tolokers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pools",
+                ":id",
+                "open"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6d1f66a-261c-4f5f-8575-e30b2bf0e1d6",
+              "name": "An asynchronous open operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pools",
+                    ":id",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"RUNNING\",\n  \"submitted\": \"2015-05-20T17:36:45.391Z\",\n  \"started\": \"1966-01-17T16:11:11.373Z\",\n  \"finished\": \"2024-04-22T13:43:48.650Z\",\n  \"progress\": 1293,\n  \"parameters\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8055.767086406955,\n    \"key_2\": \"string\",\n    \"key_3\": 9098.117880321082\n  },\n  \"details\": {\n    \"key_0\": true,\n    \"key_1\": false,\n    \"key_2\": 5772\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3b70153-e396-4b87-9bf2-8c83d4a6fe5c",
+          "name": "Close a pool",
+          "request": {
+            "name": "Close a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "pools",
+                ":id",
+                "close"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4112d397-ff0b-4f73-a638-513748b2852e",
+              "name": "An asynchronous close operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pools",
+                    ":id",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"RUNNING\",\n  \"submitted\": \"2015-05-20T17:36:45.391Z\",\n  \"started\": \"1966-01-17T16:11:11.373Z\",\n  \"finished\": \"2024-04-22T13:43:48.650Z\",\n  \"progress\": 1293,\n  \"parameters\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8055.767086406955,\n    \"key_2\": \"string\",\n    \"key_3\": 9098.117880321082\n  },\n  \"details\": {\n    \"key_0\": true,\n    \"key_1\": false,\n    \"key_2\": 5772\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa9153e1-5c18-44a8-bc63-881f550d00c5",
+          "name": "Archive a pool",
+          "request": {
+            "name": "Archive a pool",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "pools",
+                ":id",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "600a3e8b-e184-467b-9aef-fc44550f11e3",
+              "name": "An asynchronous archive operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pools",
+                    ":id",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"RUNNING\",\n  \"submitted\": \"2015-05-20T17:36:45.391Z\",\n  \"started\": \"1966-01-17T16:11:11.373Z\",\n  \"finished\": \"2024-04-22T13:43:48.650Z\",\n  \"progress\": 1293,\n  \"parameters\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8055.767086406955,\n    \"key_2\": \"string\",\n    \"key_3\": 9098.117880321082\n  },\n  \"details\": {\n    \"key_0\": true,\n    \"key_1\": false,\n    \"key_2\": 5772\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8ef6d3d6-65e0-4bb0-bc38-bb652e7831a4",
+    "name": "Toloka Assignments Pools API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

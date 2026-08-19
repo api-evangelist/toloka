@@ -1,0 +1,428 @@
+{
+  "item": [
+    {
+      "id": "4910d456-8269-411f-9ea8-bbbe339bbf02",
+      "name": "Webhook Subscriptions",
+      "description": {
+        "content": "Subscribe to platform events delivered to your endpoint.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f45aa783-1ce4-4bef-b86c-e06593e13da1",
+          "name": "Get the list of webhook subscriptions",
+          "request": {
+            "name": "Get the list of webhook subscriptions",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "webhook-subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06fd46a3-63f4-428e-bac1-a9972bc031dd",
+              "name": "A page of webhook subscriptions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "webhook-subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"webhook_url\": \"https://iIbVsIIybSPLHUqxtWRrpkSGUZZc.gymTl+JP.ePXuYyksxMg2Y7PbTT.SsUFmPWoFvPTG4NQtpASHU9,czmdoMb61t9fKSofKC\",\n      \"event_type\": \"ASSIGNMENT_CREATED\",\n      \"pool_id\": \"string\",\n      \"id\": \"string\",\n      \"secret_key\": \"string\",\n      \"created\": \"2005-10-12T03:25:30.072Z\"\n    },\n    {\n      \"webhook_url\": \"https://JocsHyZfcPJedJdvorPhFytVVUwObz.hpsuYb40KnZvBytu4jI7\",\n      \"event_type\": \"DYNAMIC_OVERLAP_COMPLETED\",\n      \"pool_id\": \"string\",\n      \"id\": \"string\",\n      \"secret_key\": \"string\",\n      \"created\": \"1958-04-11T21:10:44.660Z\"\n    }\n  ],\n  \"has_more\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97d911ad-8cb4-43db-9ea7-8aa2feab03f3",
+          "name": "Create webhook subscriptions",
+          "request": {
+            "name": "Create webhook subscriptions",
+            "description": {
+              "content": "Subscribe to platform events (e.g. POOL_CLOSED, ASSIGNMENT_CREATED, ASSIGNMENT_SUBMITTED, ASSIGNMENT_APPROVED, ASSIGNMENT_REJECTED). Add a secret_key to receive a signed Toloka-Signature header (HMAC SHA256).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "webhook-subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhook_url\": \"<uri>\",\n  \"event_type\": \"<string>\",\n  \"pool_id\": \"<string>\",\n  \"secret_key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57cdaa8b-015e-47f6-94c8-76632c20c5dd",
+              "name": "The created subscription(s).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "webhook-subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webhook_url\": \"<uri>\",\n  \"event_type\": \"<string>\",\n  \"pool_id\": \"<string>\",\n  \"secret_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": {\n    \"key_0\": {\n      \"webhook_url\": \"<uri>\",\n      \"event_type\": \"<string>\",\n      \"pool_id\": \"<string>\",\n      \"id\": \"string\",\n      \"secret_key\": \"<string>\",\n      \"created\": \"2020-08-15T01:26:48.537Z\"\n    }\n  },\n  \"validation_errors\": {\n    \"key_0\": true,\n    \"key_1\": false,\n    \"key_2\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f41d795-f446-494a-a735-b8697b22331b",
+          "name": "Get a webhook subscription",
+          "request": {
+            "name": "Get a webhook subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "webhook-subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1082f17c-283e-49a8-9bdb-26c78449577e",
+              "name": "The requested subscription.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "webhook-subscriptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"webhook_url\": \"<uri>\",\n  \"event_type\": \"<string>\",\n  \"pool_id\": \"<string>\",\n  \"id\": \"string\",\n  \"secret_key\": \"<string>\",\n  \"created\": \"1985-10-01T16:47:42.413Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08090c02-f231-434a-a0cf-5fdcc602c496",
+          "name": "Delete a webhook subscription",
+          "request": {
+            "name": "Delete a webhook subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "webhook-subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9e3bbf4-8a30-4368-a2a1-461a910a2cb2",
+              "name": "The subscription was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "webhook-subscriptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a0be6375-31ea-4379-bb32-9886ed4604a5",
+    "name": "Toloka Assignments Webhook Subscriptions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

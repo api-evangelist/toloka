@@ -1,0 +1,339 @@
+{
+  "item": [
+    {
+      "id": "bbce8528-ec0d-41b4-aa6c-7a18f919d75e",
+      "name": "Attachments",
+      "description": {
+        "content": "Retrieve files Tolokers attached to their assignments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cbd3f2c1-2aee-4df3-9fdd-c8748ab21652",
+          "name": "Get the list of attachments",
+          "request": {
+            "name": "Get the list of attachments",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "attachments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2a4f3e8-aa37-4103-bb38-e443a8118111",
+              "name": "A page of attachment metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"attachment_type\": \"ASSIGNMENT_ATTACHMENT\",\n      \"name\": \"string\",\n      \"details\": {\n        \"user_id\": \"string\",\n        \"assignment_id\": \"string\",\n        \"pool_id\": \"string\"\n      },\n      \"media_type\": \"string\",\n      \"created\": \"1985-05-20T14:31:50.216Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"attachment_type\": \"ASSIGNMENT_ATTACHMENT\",\n      \"name\": \"string\",\n      \"details\": {\n        \"user_id\": \"string\",\n        \"assignment_id\": \"string\",\n        \"pool_id\": \"string\"\n      },\n      \"media_type\": \"string\",\n      \"created\": \"2020-05-26T22:14:34.476Z\"\n    }\n  ],\n  \"has_more\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e86c2901-0e7b-4287-a9d4-46af127d1345",
+          "name": "Get attachment metadata",
+          "request": {
+            "name": "Get attachment metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "attachments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5887712-7d43-4a9f-a6b7-5ea0cba02be6",
+              "name": "The requested attachment metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "attachments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"attachment_type\": \"ASSIGNMENT_ATTACHMENT\",\n  \"name\": \"string\",\n  \"details\": {\n    \"user_id\": \"string\",\n    \"assignment_id\": \"string\",\n    \"pool_id\": \"string\"\n  },\n  \"media_type\": \"string\",\n  \"created\": \"1992-12-19T21:01:09.567Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e645a591-6f39-4558-9252-c7d170402ca0",
+          "name": "Download an attachment",
+          "request": {
+            "name": "Download an attachment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "attachments",
+                ":id",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a16aa25-4f61-431b-ab48-f80c167bc2f8",
+              "name": "The attachment file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "attachments",
+                    ":id",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "92610097-28f4-4086-b470-8298b69bb0fd",
+    "name": "Toloka Assignments Attachments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

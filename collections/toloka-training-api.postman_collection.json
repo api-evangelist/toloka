@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "aa40c5e2-3a22-4297-896a-b39f9216f595",
+      "name": "Training",
+      "description": {
+        "content": "Create and manage training pools used to qualify Tolokers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ff80272-78c0-42aa-8e7e-838df7947576",
+          "name": "Get the list of training pools",
+          "request": {
+            "name": "Get the list of training pools",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "trainings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "823feeeb-399d-4bd7-b8f9-b796759fe2a3",
+              "name": "A page of training pools.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"project_id\": \"string\",\n      \"private_name\": \"string\",\n      \"id\": \"string\",\n      \"may_contain_adult_content\": true,\n      \"assignment_max_duration_seconds\": 2838,\n      \"mix_tasks_in_creation_order\": true,\n      \"shuffle_tasks_in_task_suite\": true,\n      \"training_tasks_in_task_suite_count\": 1334,\n      \"task_suites_required_to_pass\": 7891,\n      \"retry_training_after_days\": 3422,\n      \"status\": \"CLOSED\"\n    },\n    {\n      \"project_id\": \"string\",\n      \"private_name\": \"string\",\n      \"id\": \"string\",\n      \"may_contain_adult_content\": true,\n      \"assignment_max_duration_seconds\": 6236,\n      \"mix_tasks_in_creation_order\": true,\n      \"shuffle_tasks_in_task_suite\": true,\n      \"training_tasks_in_task_suite_count\": 9099,\n      \"task_suites_required_to_pass\": 9610,\n      \"retry_training_after_days\": 5144,\n      \"status\": \"LOCKED\"\n    }\n  ],\n  \"has_more\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cca30309-b7b4-4d63-bcfe-fbb63b6dc50c",
+          "name": "Create a training pool",
+          "request": {
+            "name": "Create a training pool",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "trainings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"mix_tasks_in_creation_order\": \"<boolean>\",\n  \"shuffle_tasks_in_task_suite\": \"<boolean>\",\n  \"training_tasks_in_task_suite_count\": \"<integer>\",\n  \"task_suites_required_to_pass\": \"<integer>\",\n  \"retry_training_after_days\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21555f38-ab06-48d7-8d82-d3198c7126f7",
+              "name": "The created training pool.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"mix_tasks_in_creation_order\": \"<boolean>\",\n  \"shuffle_tasks_in_task_suite\": \"<boolean>\",\n  \"training_tasks_in_task_suite_count\": \"<integer>\",\n  \"task_suites_required_to_pass\": \"<integer>\",\n  \"retry_training_after_days\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project_id\": \"<string>\",\n  \"private_name\": \"<string>\",\n  \"id\": \"string\",\n  \"may_contain_adult_content\": \"<boolean>\",\n  \"assignment_max_duration_seconds\": \"<integer>\",\n  \"mix_tasks_in_creation_order\": \"<boolean>\",\n  \"shuffle_tasks_in_task_suite\": \"<boolean>\",\n  \"training_tasks_in_task_suite_count\": \"<integer>\",\n  \"task_suites_required_to_pass\": \"<integer>\",\n  \"retry_training_after_days\": \"<integer>\",\n  \"status\": \"LOCKED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "153fcf3a-ca78-4b5c-a57e-acd5ffc141bf",
+          "name": "Open a training pool",
+          "request": {
+            "name": "Open a training pool",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "trainings",
+                ":id",
+                "open"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50db8a83-1627-4d6c-a5f1-113f25b8c341",
+              "name": "An asynchronous open operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainings",
+                    ":id",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"PENDING\",\n  \"submitted\": \"1957-10-14T06:20:13.592Z\",\n  \"started\": \"2013-09-17T07:41:40.761Z\",\n  \"finished\": \"1988-06-04T10:14:23.924Z\",\n  \"progress\": 7762,\n  \"parameters\": {\n    \"key_0\": true,\n    \"key_1\": 5236.855124819295\n  },\n  \"details\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9ae847ae-c9aa-413e-8489-35a66bb54757",
+    "name": "Toloka Assignments Training API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

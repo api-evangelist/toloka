@@ -1,0 +1,564 @@
+{
+  "item": [
+    {
+      "id": "e8843e4e-4f63-4630-8865-02c0fd32b6c5",
+      "name": "Projects",
+      "description": {
+        "content": "Create and manage projects that define task interface and instructions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2a77beb-92c5-4571-9224-2e18d0b49cc3",
+          "name": "Get the list of projects",
+          "request": {
+            "name": "Get the list of projects",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Comma-separated sort fields; prefix with `-` for descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter projects by status."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56e370c2-64c6-4d04-b5fa-e10e0043bec1",
+              "name": "A page of projects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"public_name\": \"string\",\n      \"public_description\": \"string\",\n      \"task_spec\": {\n        \"input_spec\": {\n          \"key_0\": 5679.367789361944,\n          \"key_1\": 6990,\n          \"key_2\": \"string\"\n        },\n        \"output_spec\": {\n          \"key_0\": 8736\n        },\n        \"view_spec\": {\n          \"key_0\": 2899,\n          \"key_1\": \"string\"\n        }\n      },\n      \"id\": \"string\",\n      \"private_comment\": \"string\",\n      \"assignments_issuing_type\": \"MAP_SELECTOR\",\n      \"status\": \"ARCHIVED\",\n      \"created\": \"1975-07-31T15:46:46.531Z\"\n    },\n    {\n      \"public_name\": \"string\",\n      \"public_description\": \"string\",\n      \"task_spec\": {\n        \"input_spec\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"output_spec\": {\n          \"key_0\": 6886.519421862144\n        },\n        \"view_spec\": {\n          \"key_0\": \"string\",\n          \"key_1\": false\n        }\n      },\n      \"id\": \"string\",\n      \"private_comment\": \"string\",\n      \"assignments_issuing_type\": \"MAP_SELECTOR\",\n      \"status\": \"ACTIVE\",\n      \"created\": \"1977-09-20T06:59:23.279Z\"\n    }\n  ],\n  \"has_more\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "734ef46c-ad59-4347-91d7-e4d736e69f2e",
+          "name": "Create a project",
+          "request": {
+            "name": "Create a project",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"public_name\": \"<string>\",\n  \"public_description\": \"<string>\",\n  \"task_spec\": {\n    \"input_spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": 7362\n    },\n    \"output_spec\": {\n      \"key_0\": \"string\"\n    },\n    \"view_spec\": {\n      \"key_0\": 983.924320963605,\n      \"key_1\": 1321.4761582854273,\n      \"key_2\": false\n    }\n  },\n  \"private_comment\": \"<string>\",\n  \"assignments_issuing_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b97e46e-a65d-4f0b-8179-ec4e436d31ee",
+              "name": "The created project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"public_name\": \"<string>\",\n  \"public_description\": \"<string>\",\n  \"task_spec\": {\n    \"input_spec\": {\n      \"key_0\": true,\n      \"key_1\": 7896,\n      \"key_2\": false\n    },\n    \"output_spec\": {\n      \"key_0\": 8963.004142925496,\n      \"key_1\": true,\n      \"key_2\": 6871.490609639941\n    },\n    \"view_spec\": {\n      \"key_0\": 4812,\n      \"key_1\": \"string\"\n    }\n  },\n  \"private_comment\": \"<string>\",\n  \"assignments_issuing_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"public_name\": \"<string>\",\n  \"public_description\": \"<string>\",\n  \"task_spec\": {\n    \"input_spec\": {\n      \"key_0\": 9057,\n      \"key_1\": \"string\"\n    },\n    \"output_spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": 2021.5241746533186\n    },\n    \"view_spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": false,\n      \"key_2\": 9267.279162039937\n    }\n  },\n  \"id\": \"string\",\n  \"private_comment\": \"<string>\",\n  \"assignments_issuing_type\": \"<string>\",\n  \"status\": \"ACTIVE\",\n  \"created\": \"2017-12-29T09:47:38.995Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92cf7680-4e39-4685-a1ca-5ad3013803a9",
+          "name": "Get a project",
+          "request": {
+            "name": "Get a project",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec358639-6595-444b-bb1d-85ee3b026188",
+              "name": "The requested project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"public_name\": \"<string>\",\n  \"public_description\": \"<string>\",\n  \"task_spec\": {\n    \"input_spec\": {\n      \"key_0\": 9057,\n      \"key_1\": \"string\"\n    },\n    \"output_spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": 2021.5241746533186\n    },\n    \"view_spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": false,\n      \"key_2\": 9267.279162039937\n    }\n  },\n  \"id\": \"string\",\n  \"private_comment\": \"<string>\",\n  \"assignments_issuing_type\": \"<string>\",\n  \"status\": \"ACTIVE\",\n  \"created\": \"2017-12-29T09:47:38.995Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4322842c-2a32-4ee8-92f5-0c222544c889",
+          "name": "Edit a project",
+          "request": {
+            "name": "Edit a project",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"public_name\": \"<string>\",\n  \"public_description\": \"<string>\",\n  \"task_spec\": {\n    \"input_spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": 7362\n    },\n    \"output_spec\": {\n      \"key_0\": \"string\"\n    },\n    \"view_spec\": {\n      \"key_0\": 983.924320963605,\n      \"key_1\": 1321.4761582854273,\n      \"key_2\": false\n    }\n  },\n  \"private_comment\": \"<string>\",\n  \"assignments_issuing_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ddf571cc-7420-47a3-b2aa-c0273a1e9d96",
+              "name": "The updated project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"public_name\": \"<string>\",\n  \"public_description\": \"<string>\",\n  \"task_spec\": {\n    \"input_spec\": {\n      \"key_0\": true,\n      \"key_1\": 7896,\n      \"key_2\": false\n    },\n    \"output_spec\": {\n      \"key_0\": 8963.004142925496,\n      \"key_1\": true,\n      \"key_2\": 6871.490609639941\n    },\n    \"view_spec\": {\n      \"key_0\": 4812,\n      \"key_1\": \"string\"\n    }\n  },\n  \"private_comment\": \"<string>\",\n  \"assignments_issuing_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"public_name\": \"<string>\",\n  \"public_description\": \"<string>\",\n  \"task_spec\": {\n    \"input_spec\": {\n      \"key_0\": 9057,\n      \"key_1\": \"string\"\n    },\n    \"output_spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": 2021.5241746533186\n    },\n    \"view_spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": false,\n      \"key_2\": 9267.279162039937\n    }\n  },\n  \"id\": \"string\",\n  \"private_comment\": \"<string>\",\n  \"assignments_issuing_type\": \"<string>\",\n  \"status\": \"ACTIVE\",\n  \"created\": \"2017-12-29T09:47:38.995Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1852954-59f9-4046-8fe4-19ab09730ecb",
+          "name": "Archive a project",
+          "request": {
+            "name": "Archive a project",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":id",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33ec2413-5e97-4875-9fc1-73dc46afe268",
+              "name": "An asynchronous archive operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":id",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"PENDING\",\n  \"submitted\": \"2008-09-21T12:02:56.627Z\",\n  \"started\": \"1994-08-24T17:30:29.122Z\",\n  \"finished\": \"1984-02-17T15:51:34.721Z\",\n  \"progress\": 5735,\n  \"parameters\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": 5231.31976208148\n  },\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7fdc6230-8b4f-4037-b03d-9bb24bca90a9",
+    "name": "Toloka Assignments Projects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

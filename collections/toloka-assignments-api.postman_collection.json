@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "1c0b39e5-3857-4cae-ab88-8a4845e7abcd",
+      "name": "Assignments",
+      "description": {
+        "content": "Retrieve Toloker responses and accept or reject completed assignments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6d47ef4-16b0-47be-80c4-8367ecbb41db",
+          "name": "Get the list of assignments",
+          "request": {
+            "name": "Get the list of assignments",
+            "description": {
+              "content": "Retrieve Toloker responses, optionally filtered by pool and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pool_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62d3cc5c-fd47-4781-9c01-b814a045600e",
+              "name": "A page of assignments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pool_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"task_suite_id\": \"string\",\n      \"pool_id\": \"string\",\n      \"user_id\": \"string\",\n      \"status\": \"ACTIVE\",\n      \"tasks\": [\n        {\n          \"pool_id\": \"string\",\n          \"input_values\": {\n            \"key_0\": false\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 5761,\n                \"key_1\": \"string\",\n                \"key_2\": 1979\n              },\n              \"correctness_weight\": 1039.1456397397735\n            },\n            {\n              \"output_values\": {\n                \"key_0\": 2490.0289510084804\n              },\n              \"correctness_weight\": 9780.367032379536\n            }\n          ],\n          \"overlap\": 8986,\n          \"infinite_overlap\": true,\n          \"created\": \"1985-04-14T15:01:30.193Z\"\n        },\n        {\n          \"pool_id\": \"string\",\n          \"input_values\": {\n            \"key_0\": 2372\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 6021\n              },\n              \"correctness_weight\": 7496.623412574604\n            },\n            {\n              \"output_values\": {\n                \"key_0\": \"string\"\n              },\n              \"correctness_weight\": 6066.220805241402\n            }\n          ],\n          \"overlap\": 6233,\n          \"infinite_overlap\": true,\n          \"created\": \"2020-01-29T20:33:05.445Z\"\n        }\n      ],\n      \"solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": \"string\",\n            \"key_1\": 3569.8486329943057,\n            \"key_2\": false,\n            \"key_3\": \"string\"\n          }\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 8261.430173048586,\n            \"key_1\": 3426,\n            \"key_2\": 2995.7862234295317\n          }\n        }\n      ],\n      \"reward\": 9619.93689076729,\n      \"public_comment\": \"string\",\n      \"created\": \"2003-09-29T11:32:50.378Z\",\n      \"submitted\": \"2009-07-16T06:02:45.832Z\",\n      \"accepted\": \"1982-06-16T05:54:57.895Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"task_suite_id\": \"string\",\n      \"pool_id\": \"string\",\n      \"user_id\": \"string\",\n      \"status\": \"SUBMITTED\",\n      \"tasks\": [\n        {\n          \"pool_id\": \"string\",\n          \"input_values\": {\n            \"key_0\": 5553.45376819622,\n            \"key_1\": 4904,\n            \"key_2\": 1981\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": 1283\n              },\n              \"correctness_weight\": 5531.282848587863\n            },\n            {\n              \"output_values\": {\n                \"key_0\": 9580\n              },\n              \"correctness_weight\": 1527.9868932983154\n            }\n          ],\n          \"overlap\": 2179,\n          \"infinite_overlap\": false,\n          \"created\": \"2003-11-12T10:43:26.073Z\"\n        },\n        {\n          \"pool_id\": \"string\",\n          \"input_values\": {\n            \"key_0\": \"string\",\n            \"key_1\": false\n          },\n          \"id\": \"string\",\n          \"known_solutions\": [\n            {\n              \"output_values\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"correctness_weight\": 5367.516052608096\n            },\n            {\n              \"output_values\": {\n                \"key_0\": 443,\n                \"key_1\": 9477\n              },\n              \"correctness_weight\": 5308.23860715746\n            }\n          ],\n          \"overlap\": 3586,\n          \"infinite_overlap\": true,\n          \"created\": \"1964-01-14T05:41:54.159Z\"\n        }\n      ],\n      \"solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 6215.493459951941,\n            \"key_1\": true\n          }\n        }\n      ],\n      \"reward\": 630.9732840636461,\n      \"public_comment\": \"string\",\n      \"created\": \"1988-09-03T14:57:28.937Z\",\n      \"submitted\": \"1957-05-01T16:28:04.633Z\",\n      \"accepted\": \"1974-12-20T23:31:31.855Z\"\n    }\n  ],\n  \"has_more\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "871d5d4a-8ac9-4430-b09f-51b7cfa13aee",
+          "name": "Get an assignment",
+          "request": {
+            "name": "Get an assignment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "assignments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7068dce0-6949-4a76-8d96-cb7bbb06e0c5",
+              "name": "The requested assignment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assignments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"task_suite_id\": \"string\",\n  \"pool_id\": \"string\",\n  \"user_id\": \"string\",\n  \"status\": \"SUBMITTED\",\n  \"tasks\": [\n    {\n      \"pool_id\": \"string\",\n      \"input_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": 3108.11528230631\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": true,\n            \"key_1\": \"string\"\n          },\n          \"correctness_weight\": 5523.131164308429\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 4076.2709099948424,\n            \"key_1\": \"string\"\n          },\n          \"correctness_weight\": 2124.429888306574\n        }\n      ],\n      \"overlap\": 4452,\n      \"infinite_overlap\": true,\n      \"created\": \"1958-10-27T15:59:54.398Z\"\n    },\n    {\n      \"pool_id\": \"string\",\n      \"input_values\": {\n        \"key_0\": 5512.580460718606,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": 1138\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": false\n          },\n          \"correctness_weight\": 6189.413392818812\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 6580.530301357974,\n            \"key_1\": 5779.612081300775\n          },\n          \"correctness_weight\": 1536.666174694783\n        }\n      ],\n      \"overlap\": 858,\n      \"infinite_overlap\": true,\n      \"created\": \"1976-02-23T11:05:04.638Z\"\n    }\n  ],\n  \"solutions\": [\n    {\n      \"output_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": 7196,\n        \"key_2\": \"string\",\n        \"key_3\": 4530.38687371636\n      }\n    },\n    {\n      \"output_values\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ],\n  \"reward\": 6810.795691674024,\n  \"public_comment\": \"string\",\n  \"created\": \"1954-10-17T19:38:37.121Z\",\n  \"submitted\": \"1977-07-19T13:27:21.656Z\",\n  \"accepted\": \"1989-03-16T13:31:34.663Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f0d189d-d82e-4f54-b8c0-64b12d85e1f7",
+          "name": "Accept or reject an assignment",
+          "request": {
+            "name": "Accept or reject an assignment",
+            "description": {
+              "content": "Set status to ACCEPTED or REJECTED, with a public comment for the Toloker.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assignments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"public_comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7bfc5d1-f8e1-4007-92bf-647581aa9838",
+              "name": "The updated assignment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assignments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"public_comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"task_suite_id\": \"string\",\n  \"pool_id\": \"string\",\n  \"user_id\": \"string\",\n  \"status\": \"SUBMITTED\",\n  \"tasks\": [\n    {\n      \"pool_id\": \"string\",\n      \"input_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": 3108.11528230631\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": true,\n            \"key_1\": \"string\"\n          },\n          \"correctness_weight\": 5523.131164308429\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 4076.2709099948424,\n            \"key_1\": \"string\"\n          },\n          \"correctness_weight\": 2124.429888306574\n        }\n      ],\n      \"overlap\": 4452,\n      \"infinite_overlap\": true,\n      \"created\": \"1958-10-27T15:59:54.398Z\"\n    },\n    {\n      \"pool_id\": \"string\",\n      \"input_values\": {\n        \"key_0\": 5512.580460718606,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": 1138\n      },\n      \"id\": \"string\",\n      \"known_solutions\": [\n        {\n          \"output_values\": {\n            \"key_0\": false\n          },\n          \"correctness_weight\": 6189.413392818812\n        },\n        {\n          \"output_values\": {\n            \"key_0\": 6580.530301357974,\n            \"key_1\": 5779.612081300775\n          },\n          \"correctness_weight\": 1536.666174694783\n        }\n      ],\n      \"overlap\": 858,\n      \"infinite_overlap\": true,\n      \"created\": \"1976-02-23T11:05:04.638Z\"\n    }\n  ],\n  \"solutions\": [\n    {\n      \"output_values\": {\n        \"key_0\": \"string\",\n        \"key_1\": 7196,\n        \"key_2\": \"string\",\n        \"key_3\": 4530.38687371636\n      }\n    },\n    {\n      \"output_values\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ],\n  \"reward\": 6810.795691674024,\n  \"public_comment\": \"string\",\n  \"created\": \"1954-10-17T19:38:37.121Z\",\n  \"submitted\": \"1977-07-19T13:27:21.656Z\",\n  \"accepted\": \"1989-03-16T13:31:34.663Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fb0b053e-3824-426d-8f29-f2142606e40e",
+    "name": "Toloka Assignments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

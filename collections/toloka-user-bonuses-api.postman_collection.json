@@ -1,0 +1,229 @@
+{
+  "item": [
+    {
+      "id": "b7f4e6a5-5780-4bd7-993a-8a81aa0631d4",
+      "name": "User Bonuses",
+      "description": {
+        "content": "Issue bonus payments to Tolokers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8963320f-03d6-4756-b0c1-c22bdc5d4d46",
+          "name": "Issue bonuses to Tolokers",
+          "request": {
+            "name": "Issue bonuses to Tolokers",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "user-bonuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "async_mode",
+                  "value": "false",
+                  "description": "When true, the request runs asynchronously and returns an Operation."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip_invalid_items",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"assignment_id\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"public_title\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"public_message\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"without_message\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c94c7341-1876-478e-b154-cfca2add74ef",
+              "name": "The issued bonus(es).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "user-bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async_mode",
+                      "value": "false"
+                    },
+                    {
+                      "key": "skip_invalid_items",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"assignment_id\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"public_title\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"public_message\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  },\n  \"without_message\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"id\": \"string\",\n  \"assignment_id\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"public_title\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"public_message\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"without_message\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c1a7456-4a7c-4516-80c0-f9988458fc13",
+              "name": "An asynchronous bonus operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "user-bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async_mode",
+                      "value": "false"
+                    },
+                    {
+                      "key": "skip_invalid_items",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"assignment_id\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"public_title\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"public_message\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  },\n  \"without_message\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"SUCCESS\",\n  \"submitted\": \"2023-08-03T23:05:48.702Z\",\n  \"started\": \"1972-09-16T12:39:40.812Z\",\n  \"finished\": \"2014-08-20T06:34:05.138Z\",\n  \"progress\": 5952,\n  \"parameters\": {\n    \"key_0\": 6035,\n    \"key_1\": 4543,\n    \"key_2\": 5765.221735572448\n  },\n  \"details\": {\n    \"key_0\": 8361.012106050619\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5be29e26-829b-414f-915b-efde0af22157",
+    "name": "Toloka Assignments User Bonuses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

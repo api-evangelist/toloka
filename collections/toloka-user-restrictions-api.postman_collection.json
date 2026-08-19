@@ -1,0 +1,147 @@
+{
+  "item": [
+    {
+      "id": "10c05825-75c7-4fe7-9e6c-e117d66db45d",
+      "name": "User Restrictions",
+      "description": {
+        "content": "Restrict Tolokers from a pool, project, or all projects.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1966a2f9-f51f-4107-87b6-8bc62e8ddf11",
+          "name": "Restrict a Toloker",
+          "request": {
+            "name": "Restrict a Toloker",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "user-restrictions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"pool_id\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"will_expire\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "22df1454-39c9-4983-a98b-65d81cfc912d",
+              "name": "The created restriction.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "user-restrictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"pool_id\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"will_expire\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"id\": \"string\",\n  \"project_id\": \"<string>\",\n  \"pool_id\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"will_expire\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7313d01d-f2ca-4159-9c3a-057b8ef188d7",
+    "name": "Toloka Assignments User Restrictions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "00070494-d76c-473e-b966-a0ed2d323e36",
+      "name": "Operations",
+      "description": {
+        "content": "Track the status of asynchronous operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c8590de-d878-4db2-973e-9aa624704d84",
+          "name": "Get the list of operations",
+          "request": {
+            "name": "Get the list of operations",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "operations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5464717e-c332-4639-a5fe-a1bc7e9066b0",
+              "name": "A page of operations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "operations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"status\": \"FAIL\",\n      \"submitted\": \"1969-03-25T21:18:07.849Z\",\n      \"started\": \"1958-05-18T19:29:17.779Z\",\n      \"finished\": \"2009-04-27T22:53:41.704Z\",\n      \"progress\": 6343,\n      \"parameters\": {\n        \"key_0\": false\n      },\n      \"details\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"status\": \"SUCCESS\",\n      \"submitted\": \"2009-04-14T20:16:06.554Z\",\n      \"started\": \"2007-10-22T02:12:50.927Z\",\n      \"finished\": \"2014-03-17T01:37:10.184Z\",\n      \"progress\": 5244,\n      \"parameters\": {\n        \"key_0\": 9674,\n        \"key_1\": 6279\n      },\n      \"details\": {\n        \"key_0\": 8381.862300591292,\n        \"key_1\": 8674\n      }\n    }\n  ],\n  \"has_more\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56a53581-5fe6-47a0-aee1-6acf325e02e3",
+          "name": "Get an operation",
+          "request": {
+            "name": "Get an operation",
+            "description": {
+              "content": "Poll the status of an asynchronous operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "operations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Object identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c472a200-dc4f-42a4-8a44-c68da31b2e18",
+              "name": "The requested operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "operations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Object identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"PENDING\",\n  \"submitted\": \"1957-09-08T18:15:36.610Z\",\n  \"started\": \"2006-08-30T14:01:15.637Z\",\n  \"finished\": \"1984-12-20T07:33:39.177Z\",\n  \"progress\": 5216,\n  \"parameters\": {\n    \"key_0\": true\n  },\n  \"details\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fea4f473-7326-47c8-bc5f-ed0d33fe37b2",
+    "name": "Toloka Assignments Operations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}

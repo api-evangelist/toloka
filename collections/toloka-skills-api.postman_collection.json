@@ -1,0 +1,334 @@
+{
+  "item": [
+    {
+      "id": "ac723b8f-42c9-4391-af09-b9dd11b526b6",
+      "name": "Skills",
+      "description": {
+        "content": "Create and manage skills assigned to Tolokers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c776d9d-f183-4fa3-8b2e-5cdddf0f434e",
+          "name": "Get the list of skills",
+          "request": {
+            "name": "Get the list of skills",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "skills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08814897-7ca8-4a9c-a4b2-ce70aea3d103",
+              "name": "A page of skills.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "skills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"private_comment\": \"string\",\n      \"hidden\": true,\n      \"skill_ttl_hours\": 6255,\n      \"training\": false,\n      \"public_requester_description\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"created\": \"1970-01-10T17:29:50.700Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"private_comment\": \"string\",\n      \"hidden\": false,\n      \"skill_ttl_hours\": 5294,\n      \"training\": true,\n      \"public_requester_description\": {\n        \"key_0\": \"string\"\n      },\n      \"created\": \"1957-02-27T23:10:34.972Z\"\n    }\n  ],\n  \"has_more\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2d69d46-9ffd-4c27-8342-6f2c91bf95bb",
+          "name": "Create a skill",
+          "request": {
+            "name": "Create a skill",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "skills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"skill_ttl_hours\": \"<integer>\",\n  \"training\": \"<boolean>\",\n  \"public_requester_description\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d89ab11-355e-43ec-9537-114506663a8d",
+              "name": "The created skill.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "skills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"private_comment\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"skill_ttl_hours\": \"<integer>\",\n  \"training\": \"<boolean>\",\n  \"public_requester_description\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"string\",\n  \"private_comment\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"skill_ttl_hours\": \"<integer>\",\n  \"training\": \"<boolean>\",\n  \"public_requester_description\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"created\": \"1992-10-24T03:32:04.942Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaed100e-6e47-4401-9fc9-1c16d3bc8773",
+          "name": "Assign a skill value to a Toloker",
+          "request": {
+            "name": "Assign a skill value to a Toloker",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "user-skills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"<string>\",\n  \"skill_id\": \"<string>\",\n  \"value\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9b2b409-a100-45f8-bc4c-d3f70e9ae991",
+              "name": "The assigned user skill.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "user-skills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"skill_id\": \"<string>\",\n  \"value\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"user_id\": \"string\",\n  \"skill_id\": \"string\",\n  \"value\": 5543.160236500642,\n  \"created\": \"1963-07-05T03:53:37.291Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toloka.ai/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "90edd906-f54e-4dba-8c1b-1ab463a5af89",
+    "name": "Toloka Assignments Skills API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.\n\nContact Support:\n Name: Toloka Support\n Email: support@toloka.ai",
+      "type": "text/plain"
+    }
+  }
+}
