@@ -26,6 +26,12 @@ tags:
 - Crowdsourcing
 - Human-in-the-Loop
 - Training Data
+- Artificial Intelligence
+tags_raw:
+- Data Labeling
+- Crowdsourcing
+- Human-in-the-Loop
+- Training Data
 - AI
 created: '2026-06-21'
 modified: '2026-06-21'
@@ -84,7 +90,8 @@ apis:
   description: Track the status of asynchronous operations.
   humanURL: https://toloka.ai/docs/api/api-reference/
   baseURL: https://api.toloka.ai/api/v1
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
@@ -133,6 +140,8 @@ apis:
   humanURL: https://toloka.ai/docs/api/api-reference/
   baseURL: https://api.toloka.ai/api/v1
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -205,6 +214,8 @@ apis:
   humanURL: https://toloka.ai/docs/api/api-reference/
   baseURL: https://api.toloka.ai/api/v1
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
