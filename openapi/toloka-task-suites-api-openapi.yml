@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Toloka Assignments Task Suites API
-  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  title: Toloka Task Suites API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform.
   termsOfService: https://toloka.ai/legal/terms_of_service/
   contact:
     name: Toloka Support
@@ -88,29 +88,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskSuite'
 components:
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    AsyncMode:
-      name: async_mode
-      in: query
-      schema:
-        type: boolean
-        default: false
-      description: When true, the request runs asynchronously and returns an Operation.
   schemas:
     TaskSuiteBatchResult:
       type: object
@@ -122,6 +99,29 @@ components:
         validation_errors:
           type: object
           additionalProperties: true
+    TaskSuite:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        overlap:
+          type: integer
+        infinite_overlap:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - tasks
     Task:
       type: object
       properties:
@@ -155,38 +155,6 @@ components:
       required:
       - pool_id
       - input_values
-    TaskSuiteSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/TaskSuite'
-        has_more:
-          type: boolean
-    TaskSuite:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        pool_id:
-          type: string
-        tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        overlap:
-          type: integer
-        infinite_overlap:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - pool_id
-      - tasks
     Operation:
       type: object
       properties:
@@ -220,6 +188,38 @@ components:
         details:
           type: object
           additionalProperties: true
+    TaskSuiteSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskSuite'
+        has_more:
+          type: boolean
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    AsyncMode:
+      name: async_mode
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: When true, the request runs asynchronously and returns an Operation.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   securitySchemes:
     OAuthToken:
       type: apiKey

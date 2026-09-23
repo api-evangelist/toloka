@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Toloka Assignments Pools API
-  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  title: Toloka Pools API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform.
   termsOfService: https://toloka.ai/legal/terms_of_service/
   contact:
     name: Toloka Support
@@ -149,6 +149,13 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
     Limit:
       name: limit
       in: query
@@ -163,13 +170,6 @@ components:
       schema:
         type: string
       description: Comma-separated sort fields; prefix with `-` for descending.
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
   schemas:
     PoolSearchResult:
       type: object

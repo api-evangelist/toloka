@@ -1,18 +1,7 @@
 {
   "provider": "toloka",
   "sources": [
-    "toloka-assignments-api-openapi.yml",
-    "toloka-attachments-api-openapi.yml",
-    "toloka-operations-api-openapi.yml",
-    "toloka-pools-api-openapi.yml",
-    "toloka-projects-api-openapi.yml",
-    "toloka-skills-api-openapi.yml",
-    "toloka-task-suites-api-openapi.yml",
-    "toloka-tasks-api-openapi.yml",
-    "toloka-training-api-openapi.yml",
-    "toloka-user-bonuses-api-openapi.yml",
-    "toloka-user-restrictions-api-openapi.yml",
-    "toloka-webhook-subscriptions-api-openapi.yml"
+    "_original/toloka-openapi.yml"
   ],
   "outputs": [
     "toloka-assignments-api-openapi.yml",
@@ -31,6 +20,23 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "toloka-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "toloka-assignments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-attachments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-pools-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-skills-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-task-suites-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-training-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-user-bonuses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-user-restrictions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "toloka-webhook-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

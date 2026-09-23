@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Toloka Assignments Webhook Subscriptions API
-  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  title: Toloka Webhook Subscriptions API
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform.
   termsOfService: https://toloka.ai/legal/terms_of_service/
   contact:
     name: Toloka Support
@@ -86,23 +86,26 @@ paths:
         '204':
           description: The subscription was deleted.
 components:
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
   schemas:
+    WebhookSubscriptionBatchResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WebhookSubscription'
+        validation_errors:
+          type: object
+          additionalProperties: true
+    WebhookSubscriptionSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+        has_more:
+          type: boolean
     WebhookSubscription:
       type: object
       properties:
@@ -136,25 +139,22 @@ components:
       - webhook_url
       - event_type
       - pool_id
-    WebhookSubscriptionBatchResult:
-      type: object
-      properties:
-        items:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/WebhookSubscription'
-        validation_errors:
-          type: object
-          additionalProperties: true
-    WebhookSubscriptionSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookSubscription'
-        has_more:
-          type: boolean
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   securitySchemes:
     OAuthToken:
       type: apiKey

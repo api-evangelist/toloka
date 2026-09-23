@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Toloka Assignments API
-  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform. You manage projects, pools, training pools, tasks, task suites, and assignments; collect and review Toloker responses; issue bonuses; manage skills and attachments; track asynchronous operations; and subscribe to event webhooks. Most write operations that touch large batches of tasks or suites run asynchronously and return an Operation you poll to completion.
+  description: The Toloka API lets you build scalable, fully automated human-in-the-loop data-labeling and human-data pipelines on the Toloka crowdsourcing platform.
   termsOfService: https://toloka.ai/legal/terms_of_service/
   contact:
     name: Toloka Support
@@ -101,56 +101,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Assignment'
 components:
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
   schemas:
-    Task:
+    AssignmentSearchResult:
       type: object
       properties:
-        id:
-          type: string
-          readOnly: true
-        pool_id:
-          type: string
-        input_values:
-          type: object
-          additionalProperties: true
-          description: Input data matching the project's input_spec.
-        known_solutions:
+        items:
           type: array
           items:
-            type: object
-            properties:
-              output_values:
-                type: object
-                additionalProperties: true
-              correctness_weight:
-                type: number
-        overlap:
-          type: integer
-        infinite_overlap:
+            $ref: '#/components/schemas/Assignment'
+        has_more:
           type: boolean
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - pool_id
-      - input_values
     Assignment:
       type: object
       properties:
@@ -197,15 +157,55 @@ components:
         accepted:
           type: string
           format: date-time
-    AssignmentSearchResult:
+    Task:
       type: object
       properties:
-        items:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        input_values:
+          type: object
+          additionalProperties: true
+          description: Input data matching the project's input_spec.
+        known_solutions:
           type: array
           items:
-            $ref: '#/components/schemas/Assignment'
-        has_more:
+            type: object
+            properties:
+              output_values:
+                type: object
+                additionalProperties: true
+              correctness_weight:
+                type: number
+        overlap:
+          type: integer
+        infinite_overlap:
           type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - input_values
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   securitySchemes:
     OAuthToken:
       type: apiKey
