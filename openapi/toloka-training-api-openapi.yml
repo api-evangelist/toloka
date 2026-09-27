@@ -107,15 +107,6 @@ components:
       required:
       - project_id
       - private_name
-    TrainingSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Training'
-        has_more:
-          type: boolean
     Operation:
       type: object
       properties:
@@ -149,6 +140,15 @@ components:
         details:
           type: object
           additionalProperties: true
+    TrainingSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Training'
+        has_more:
+          type: boolean
   parameters:
     PathId:
       name: id

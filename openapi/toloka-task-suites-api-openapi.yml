@@ -89,6 +89,15 @@ paths:
                 $ref: '#/components/schemas/TaskSuite'
 components:
   schemas:
+    TaskSuiteSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskSuite'
+        has_more:
+          type: boolean
     TaskSuiteBatchResult:
       type: object
       properties:
@@ -97,6 +106,39 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/TaskSuite'
         validation_errors:
+          type: object
+          additionalProperties: true
+    Operation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - SUCCESS
+          - FAIL
+        submitted:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        progress:
+          type: integer
+        parameters:
+          type: object
+          additionalProperties: true
+        details:
           type: object
           additionalProperties: true
     TaskSuite:
@@ -155,56 +197,7 @@ components:
       required:
       - pool_id
       - input_values
-    Operation:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        type:
-          type: string
-          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
-        status:
-          type: string
-          enum:
-          - PENDING
-          - RUNNING
-          - SUCCESS
-          - FAIL
-        submitted:
-          type: string
-          format: date-time
-        started:
-          type: string
-          format: date-time
-        finished:
-          type: string
-          format: date-time
-        progress:
-          type: integer
-        parameters:
-          type: object
-          additionalProperties: true
-        details:
-          type: object
-          additionalProperties: true
-    TaskSuiteSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/TaskSuite'
-        has_more:
-          type: boolean
   parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
     AsyncMode:
       name: async_mode
       in: query
@@ -212,6 +205,13 @@ components:
         type: boolean
         default: false
       description: When true, the request runs asynchronously and returns an Operation.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
     Limit:
       name: limit
       in: query

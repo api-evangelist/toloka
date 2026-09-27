@@ -82,32 +82,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserSkill'
 components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   schemas:
-    UserSkill:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        user_id:
-          type: string
-        skill_id:
-          type: string
-        value:
-          type: number
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-    SkillSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Skill'
-        has_more:
-          type: boolean
     Skill:
       type: object
       properties:
@@ -134,15 +118,31 @@ components:
           readOnly: true
       required:
       - name
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
+    UserSkill:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        user_id:
+          type: string
+        skill_id:
+          type: string
+        value:
+          type: number
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+    SkillSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+        has_more:
+          type: boolean
   securitySchemes:
     OAuthToken:
       type: apiKey
