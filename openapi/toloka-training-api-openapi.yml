@@ -72,6 +72,48 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
+    TrainingSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Training'
+        has_more:
+          type: boolean
+    Operation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - SUCCESS
+          - FAIL
+        submitted:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        progress:
+          type: integer
+        parameters:
+          type: object
+          additionalProperties: true
+        details:
+          type: object
+          additionalProperties: true
     Training:
       type: object
       properties:
@@ -107,48 +149,6 @@ components:
       required:
       - project_id
       - private_name
-    Operation:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        type:
-          type: string
-          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
-        status:
-          type: string
-          enum:
-          - PENDING
-          - RUNNING
-          - SUCCESS
-          - FAIL
-        submitted:
-          type: string
-          format: date-time
-        started:
-          type: string
-          format: date-time
-        finished:
-          type: string
-          format: date-time
-        progress:
-          type: integer
-        parameters:
-          type: object
-          additionalProperties: true
-        details:
-          type: object
-          additionalProperties: true
-    TrainingSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Training'
-        has_more:
-          type: boolean
   parameters:
     PathId:
       name: id

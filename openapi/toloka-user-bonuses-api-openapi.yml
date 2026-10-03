@@ -55,6 +55,34 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
+    UserBonus:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        user_id:
+          type: string
+        amount:
+          type: number
+          description: Bonus amount in US dollars.
+        assignment_id:
+          type: string
+        private_comment:
+          type: string
+        public_title:
+          type: object
+          additionalProperties:
+            type: string
+        public_message:
+          type: object
+          additionalProperties:
+            type: string
+        without_message:
+          type: boolean
+      required:
+      - user_id
+      - amount
     Operation:
       type: object
       properties:
@@ -88,34 +116,6 @@ components:
         details:
           type: object
           additionalProperties: true
-    UserBonus:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        user_id:
-          type: string
-        amount:
-          type: number
-          description: Bonus amount in US dollars.
-        assignment_id:
-          type: string
-        private_comment:
-          type: string
-        public_title:
-          type: object
-          additionalProperties:
-            type: string
-        public_message:
-          type: object
-          additionalProperties:
-            type: string
-        without_message:
-          type: boolean
-      required:
-      - user_id
-      - amount
   parameters:
     AsyncMode:
       name: async_mode

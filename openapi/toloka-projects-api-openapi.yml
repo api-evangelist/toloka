@@ -111,51 +111,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Operation'
 components:
-  parameters:
-    SortField:
-      name: sort
-      in: query
-      schema:
-        type: string
-      description: Comma-separated sort fields; prefix with `-` for descending.
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
   schemas:
-    TaskSpec:
-      type: object
-      description: Defines the task input/output schema and the Toloker view.
-      properties:
-        input_spec:
-          type: object
-          additionalProperties: true
-        output_spec:
-          type: object
-          additionalProperties: true
-        view_spec:
-          type: object
-          additionalProperties: true
-    ProjectSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-        has_more:
-          type: boolean
     Operation:
       type: object
       properties:
@@ -222,6 +178,50 @@ components:
       - public_name
       - public_description
       - task_spec
+    ProjectSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        has_more:
+          type: boolean
+    TaskSpec:
+      type: object
+      description: Defines the task input/output schema and the Toloker view.
+      properties:
+        input_spec:
+          type: object
+          additionalProperties: true
+        output_spec:
+          type: object
+          additionalProperties: true
+        view_spec:
+          type: object
+          additionalProperties: true
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    SortField:
+      name: sort
+      in: query
+      schema:
+        type: string
+      description: Comma-separated sort fields; prefix with `-` for descending.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   securitySchemes:
     OAuthToken:
       type: apiKey

@@ -97,6 +97,15 @@ components:
         validation_errors:
           type: object
           additionalProperties: true
+    WebhookSubscriptionSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+        has_more:
+          type: boolean
     WebhookSubscription:
       type: object
       properties:
@@ -130,15 +139,6 @@ components:
       - webhook_url
       - event_type
       - pool_id
-    WebhookSubscriptionSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookSubscription'
-        has_more:
-          type: boolean
   parameters:
     PathId:
       name: id

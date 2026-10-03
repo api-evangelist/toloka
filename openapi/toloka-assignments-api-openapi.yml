@@ -101,16 +101,56 @@ paths:
               schema:
                 $ref: '#/components/schemas/Assignment'
 components:
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   schemas:
-    AssignmentSearchResult:
+    Task:
       type: object
       properties:
-        items:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        input_values:
+          type: object
+          additionalProperties: true
+          description: Input data matching the project's input_spec.
+        known_solutions:
           type: array
           items:
-            $ref: '#/components/schemas/Assignment'
-        has_more:
+            type: object
+            properties:
+              output_values:
+                type: object
+                additionalProperties: true
+              correctness_weight:
+                type: number
+        overlap:
+          type: integer
+        infinite_overlap:
           type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - input_values
     Assignment:
       type: object
       properties:
@@ -157,55 +197,15 @@ components:
         accepted:
           type: string
           format: date-time
-    Task:
+    AssignmentSearchResult:
       type: object
       properties:
-        id:
-          type: string
-          readOnly: true
-        pool_id:
-          type: string
-        input_values:
-          type: object
-          additionalProperties: true
-          description: Input data matching the project's input_spec.
-        known_solutions:
+        items:
           type: array
           items:
-            type: object
-            properties:
-              output_values:
-                type: object
-                additionalProperties: true
-              correctness_weight:
-                type: number
-        overlap:
-          type: integer
-        infinite_overlap:
+            $ref: '#/components/schemas/Assignment'
+        has_more:
           type: boolean
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - pool_id
-      - input_values
-  parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
   securitySchemes:
     OAuthToken:
       type: apiKey

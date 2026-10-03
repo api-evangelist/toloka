@@ -88,26 +88,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskSuite'
 components:
+  parameters:
+    AsyncMode:
+      name: async_mode
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: When true, the request runs asynchronously and returns an Operation.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   schemas:
-    TaskSuiteSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/TaskSuite'
-        has_more:
-          type: boolean
-    TaskSuiteBatchResult:
-      type: object
-      properties:
-        items:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TaskSuite'
-        validation_errors:
-          type: object
-          additionalProperties: true
     Operation:
       type: object
       properties:
@@ -141,29 +145,15 @@ components:
         details:
           type: object
           additionalProperties: true
-    TaskSuite:
+    TaskSuiteSearchResult:
       type: object
       properties:
-        id:
-          type: string
-          readOnly: true
-        pool_id:
-          type: string
-        tasks:
+        items:
           type: array
           items:
-            $ref: '#/components/schemas/Task'
-        overlap:
-          type: integer
-        infinite_overlap:
+            $ref: '#/components/schemas/TaskSuite'
+        has_more:
           type: boolean
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - pool_id
-      - tasks
     Task:
       type: object
       properties:
@@ -197,29 +187,39 @@ components:
       required:
       - pool_id
       - input_values
-  parameters:
-    AsyncMode:
-      name: async_mode
-      in: query
-      schema:
-        type: boolean
-        default: false
-      description: When true, the request runs asynchronously and returns an Operation.
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
+    TaskSuiteBatchResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TaskSuite'
+        validation_errors:
+          type: object
+          additionalProperties: true
+    TaskSuite:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        overlap:
+          type: integer
+        infinite_overlap:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - tasks
   securitySchemes:
     OAuthToken:
       type: apiKey

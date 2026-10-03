@@ -119,26 +119,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/Task'
 components:
+  parameters:
+    AsyncMode:
+      name: async_mode
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: When true, the request runs asynchronously and returns an Operation.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   schemas:
-    TaskSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        has_more:
-          type: boolean
-    TaskBatchResult:
-      type: object
-      properties:
-        items:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Task'
-        validation_errors:
-          type: object
-          additionalProperties: true
     Operation:
       type: object
       properties:
@@ -205,29 +209,25 @@ components:
       required:
       - pool_id
       - input_values
-  parameters:
-    AsyncMode:
-      name: async_mode
-      in: query
-      schema:
-        type: boolean
-        default: false
-      description: When true, the request runs asynchronously and returns an Operation.
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
+    TaskBatchResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Task'
+        validation_errors:
+          type: object
+          additionalProperties: true
+    TaskSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        has_more:
+          type: boolean
   securitySchemes:
     OAuthToken:
       type: apiKey

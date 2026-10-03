@@ -70,6 +70,13 @@ paths:
                 format: binary
 components:
   parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
     Limit:
       name: limit
       in: query
@@ -78,13 +85,6 @@ components:
         default: 50
         maximum: 100000
       description: Maximum number of results per page.
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
   schemas:
     Attachment:
       type: object
