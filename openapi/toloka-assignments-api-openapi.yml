@@ -118,39 +118,6 @@ components:
         maximum: 100000
       description: Maximum number of results per page.
   schemas:
-    Task:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        pool_id:
-          type: string
-        input_values:
-          type: object
-          additionalProperties: true
-          description: Input data matching the project's input_spec.
-        known_solutions:
-          type: array
-          items:
-            type: object
-            properties:
-              output_values:
-                type: object
-                additionalProperties: true
-              correctness_weight:
-                type: number
-        overlap:
-          type: integer
-        infinite_overlap:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - pool_id
-      - input_values
     Assignment:
       type: object
       properties:
@@ -197,6 +164,39 @@ components:
         accepted:
           type: string
           format: date-time
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        input_values:
+          type: object
+          additionalProperties: true
+          description: Input data matching the project's input_spec.
+        known_solutions:
+          type: array
+          items:
+            type: object
+            properties:
+              output_values:
+                type: object
+                additionalProperties: true
+              correctness_weight:
+                type: number
+        overlap:
+          type: integer
+        infinite_overlap:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - input_values
     AssignmentSearchResult:
       type: object
       properties:

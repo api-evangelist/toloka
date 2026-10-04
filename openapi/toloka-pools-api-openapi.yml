@@ -148,49 +148,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/Operation'
 components:
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    SortField:
+      name: sort
+      in: query
+      schema:
+        type: string
+      description: Comma-separated sort fields; prefix with `-` for descending.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   schemas:
-    PoolSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Pool'
-        has_more:
-          type: boolean
-    Operation:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        type:
-          type: string
-          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
-        status:
-          type: string
-          enum:
-          - PENDING
-          - RUNNING
-          - SUCCESS
-          - FAIL
-        submitted:
-          type: string
-          format: date-time
-        started:
-          type: string
-          format: date-time
-        finished:
-          type: string
-          format: date-time
-        progress:
-          type: integer
-        parameters:
-          type: object
-          additionalProperties: true
-        details:
-          type: object
-          additionalProperties: true
     Pool:
       type: object
       properties:
@@ -246,28 +226,48 @@ components:
       - assignment_max_duration_seconds
       - defaults
       - will_expire
-  parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    SortField:
-      name: sort
-      in: query
-      schema:
-        type: string
-      description: Comma-separated sort fields; prefix with `-` for descending.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
+    PoolSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pool'
+        has_more:
+          type: boolean
+    Operation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - SUCCESS
+          - FAIL
+        submitted:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        progress:
+          type: integer
+        parameters:
+          type: object
+          additionalProperties: true
+        details:
+          type: object
+          additionalProperties: true
   securitySchemes:
     OAuthToken:
       type: apiKey

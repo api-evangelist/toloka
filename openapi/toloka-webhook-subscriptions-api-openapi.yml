@@ -86,26 +86,23 @@ paths:
         '204':
           description: The subscription was deleted.
 components:
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
   schemas:
-    WebhookSubscriptionBatchResult:
-      type: object
-      properties:
-        items:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/WebhookSubscription'
-        validation_errors:
-          type: object
-          additionalProperties: true
-    WebhookSubscriptionSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookSubscription'
-        has_more:
-          type: boolean
     WebhookSubscription:
       type: object
       properties:
@@ -139,22 +136,25 @@ components:
       - webhook_url
       - event_type
       - pool_id
-  parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
+    WebhookSubscriptionSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+        has_more:
+          type: boolean
+    WebhookSubscriptionBatchResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WebhookSubscription'
+        validation_errors:
+          type: object
+          additionalProperties: true
   securitySchemes:
     OAuthToken:
       type: apiKey

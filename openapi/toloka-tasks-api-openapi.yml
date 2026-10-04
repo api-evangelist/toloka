@@ -120,13 +120,6 @@ paths:
                 $ref: '#/components/schemas/Task'
 components:
   parameters:
-    AsyncMode:
-      name: async_mode
-      in: query
-      schema:
-        type: boolean
-        default: false
-      description: When true, the request runs asynchronously and returns an Operation.
     PathId:
       name: id
       in: path
@@ -134,6 +127,13 @@ components:
       schema:
         type: string
       description: Object identifier.
+    AsyncMode:
+      name: async_mode
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: When true, the request runs asynchronously and returns an Operation.
     Limit:
       name: limit
       in: query
@@ -143,39 +143,25 @@ components:
         maximum: 100000
       description: Maximum number of results per page.
   schemas:
-    Operation:
+    TaskBatchResult:
       type: object
       properties:
-        id:
-          type: string
-          readOnly: true
-        type:
-          type: string
-          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
-        status:
-          type: string
-          enum:
-          - PENDING
-          - RUNNING
-          - SUCCESS
-          - FAIL
-        submitted:
-          type: string
-          format: date-time
-        started:
-          type: string
-          format: date-time
-        finished:
-          type: string
-          format: date-time
-        progress:
-          type: integer
-        parameters:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Task'
+        validation_errors:
           type: object
           additionalProperties: true
-        details:
-          type: object
-          additionalProperties: true
+    TaskSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        has_more:
+          type: boolean
     Task:
       type: object
       properties:
@@ -209,25 +195,39 @@ components:
       required:
       - pool_id
       - input_values
-    TaskBatchResult:
+    Operation:
       type: object
       properties:
-        items:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Task'
-        validation_errors:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          description: Operation type, e.g. POOL.OPEN, TASK.BATCH_CREATE.
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - SUCCESS
+          - FAIL
+        submitted:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        progress:
+          type: integer
+        parameters:
           type: object
           additionalProperties: true
-    TaskSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        has_more:
-          type: boolean
+        details:
+          type: object
+          additionalProperties: true
   securitySchemes:
     OAuthToken:
       type: apiKey
