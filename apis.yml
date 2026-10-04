@@ -347,6 +347,9 @@ apis:
   - type: Documentation
     url: https://toloka.ai/docs/api/concepts/using-webhook-subscriptions
 common:
+- type: CapabilityMap
+  url: capabilities/toloka-capability-edges.yml
+  name: Toloka Business Capability Map
 - type: AgenticAccess
   url: agentic-access/toloka-agentic-access.yml
 - type: VulnerabilityDisclosure
