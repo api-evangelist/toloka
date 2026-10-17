@@ -54,35 +54,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Operation'
 components:
+  parameters:
+    AsyncMode:
+      name: async_mode
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: When true, the request runs asynchronously and returns an Operation.
   schemas:
-    UserBonus:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        user_id:
-          type: string
-        amount:
-          type: number
-          description: Bonus amount in US dollars.
-        assignment_id:
-          type: string
-        private_comment:
-          type: string
-        public_title:
-          type: object
-          additionalProperties:
-            type: string
-        public_message:
-          type: object
-          additionalProperties:
-            type: string
-        without_message:
-          type: boolean
-      required:
-      - user_id
-      - amount
     Operation:
       type: object
       properties:
@@ -116,14 +96,34 @@ components:
         details:
           type: object
           additionalProperties: true
-  parameters:
-    AsyncMode:
-      name: async_mode
-      in: query
-      schema:
-        type: boolean
-        default: false
-      description: When true, the request runs asynchronously and returns an Operation.
+    UserBonus:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        user_id:
+          type: string
+        amount:
+          type: number
+          description: Bonus amount in US dollars.
+        assignment_id:
+          type: string
+        private_comment:
+          type: string
+        public_title:
+          type: object
+          additionalProperties:
+            type: string
+        public_message:
+          type: object
+          additionalProperties:
+            type: string
+        without_message:
+          type: boolean
+      required:
+      - user_id
+      - amount
   securitySchemes:
     OAuthToken:
       type: apiKey

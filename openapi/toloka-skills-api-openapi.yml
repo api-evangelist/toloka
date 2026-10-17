@@ -83,6 +83,22 @@ paths:
                 $ref: '#/components/schemas/UserSkill'
 components:
   schemas:
+    UserSkill:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        user_id:
+          type: string
+        skill_id:
+          type: string
+        value:
+          type: number
+        created:
+          type: string
+          format: date-time
+          readOnly: true
     Skill:
       type: object
       properties:
@@ -109,22 +125,6 @@ components:
           readOnly: true
       required:
       - name
-    UserSkill:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        user_id:
-          type: string
-        skill_id:
-          type: string
-        value:
-          type: number
-        created:
-          type: string
-          format: date-time
-          readOnly: true
     SkillSearchResult:
       type: object
       properties:

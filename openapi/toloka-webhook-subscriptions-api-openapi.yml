@@ -86,22 +86,6 @@ paths:
         '204':
           description: The subscription was deleted.
 components:
-  parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
   schemas:
     WebhookSubscription:
       type: object
@@ -155,6 +139,22 @@ components:
         validation_errors:
           type: object
           additionalProperties: true
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
   securitySchemes:
     OAuthToken:
       type: apiKey

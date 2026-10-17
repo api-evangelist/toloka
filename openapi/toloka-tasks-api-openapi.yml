@@ -119,40 +119,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Task'
 components:
-  parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    AsyncMode:
-      name: async_mode
-      in: query
-      schema:
-        type: boolean
-        default: false
-      description: When true, the request runs asynchronously and returns an Operation.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
   schemas:
-    TaskBatchResult:
-      type: object
-      properties:
-        items:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Task'
-        validation_errors:
-          type: object
-          additionalProperties: true
     TaskSearchResult:
       type: object
       properties:
@@ -162,39 +129,6 @@ components:
             $ref: '#/components/schemas/Task'
         has_more:
           type: boolean
-    Task:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        pool_id:
-          type: string
-        input_values:
-          type: object
-          additionalProperties: true
-          description: Input data matching the project's input_spec.
-        known_solutions:
-          type: array
-          items:
-            type: object
-            properties:
-              output_values:
-                type: object
-                additionalProperties: true
-              correctness_weight:
-                type: number
-        overlap:
-          type: integer
-        infinite_overlap:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - pool_id
-      - input_values
     Operation:
       type: object
       properties:
@@ -228,6 +162,72 @@ components:
         details:
           type: object
           additionalProperties: true
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        input_values:
+          type: object
+          additionalProperties: true
+          description: Input data matching the project's input_spec.
+        known_solutions:
+          type: array
+          items:
+            type: object
+            properties:
+              output_values:
+                type: object
+                additionalProperties: true
+              correctness_weight:
+                type: number
+        overlap:
+          type: integer
+        infinite_overlap:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - input_values
+    TaskBatchResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Task'
+        validation_errors:
+          type: object
+          additionalProperties: true
+  parameters:
+    AsyncMode:
+      name: async_mode
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: When true, the request runs asynchronously and returns an Operation.
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
   securitySchemes:
     OAuthToken:
       type: apiKey

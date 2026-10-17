@@ -69,6 +69,22 @@ paths:
                 type: string
                 format: binary
 components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 50
+        maximum: 100000
+      description: Maximum number of results per page.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
   schemas:
     Attachment:
       type: object
@@ -106,22 +122,6 @@ components:
             $ref: '#/components/schemas/Attachment'
         has_more:
           type: boolean
-  parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 50
-        maximum: 100000
-      description: Maximum number of results per page.
   securitySchemes:
     OAuthToken:
       type: apiKey

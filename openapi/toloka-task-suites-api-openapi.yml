@@ -89,13 +89,6 @@ paths:
                 $ref: '#/components/schemas/TaskSuite'
 components:
   parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
     AsyncMode:
       name: async_mode
       in: query
@@ -111,73 +104,14 @@ components:
         default: 50
         maximum: 100000
       description: Maximum number of results per page.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
   schemas:
-    TaskSuiteBatchResult:
-      type: object
-      properties:
-        items:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TaskSuite'
-        validation_errors:
-          type: object
-          additionalProperties: true
-    Task:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        pool_id:
-          type: string
-        input_values:
-          type: object
-          additionalProperties: true
-          description: Input data matching the project's input_spec.
-        known_solutions:
-          type: array
-          items:
-            type: object
-            properties:
-              output_values:
-                type: object
-                additionalProperties: true
-              correctness_weight:
-                type: number
-        overlap:
-          type: integer
-        infinite_overlap:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - pool_id
-      - input_values
-    TaskSuite:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        pool_id:
-          type: string
-        tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        overlap:
-          type: integer
-        infinite_overlap:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - pool_id
-      - tasks
     Operation:
       type: object
       properties:
@@ -211,6 +145,72 @@ components:
         details:
           type: object
           additionalProperties: true
+    TaskSuiteBatchResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TaskSuite'
+        validation_errors:
+          type: object
+          additionalProperties: true
+    TaskSuite:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        overlap:
+          type: integer
+        infinite_overlap:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - tasks
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        pool_id:
+          type: string
+        input_values:
+          type: object
+          additionalProperties: true
+          description: Input data matching the project's input_spec.
+        known_solutions:
+          type: array
+          items:
+            type: object
+            properties:
+              output_values:
+                type: object
+                additionalProperties: true
+              correctness_weight:
+                type: number
+        overlap:
+          type: integer
+        infinite_overlap:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - pool_id
+      - input_values
     TaskSuiteSearchResult:
       type: object
       properties:

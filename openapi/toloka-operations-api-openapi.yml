@@ -55,13 +55,6 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object identifier.
     Limit:
       name: limit
       in: query
@@ -70,7 +63,23 @@ components:
         default: 50
         maximum: 100000
       description: Maximum number of results per page.
+    PathId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object identifier.
   schemas:
+    OperationSearchResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        has_more:
+          type: boolean
     Operation:
       type: object
       properties:
@@ -104,15 +113,6 @@ components:
         details:
           type: object
           additionalProperties: true
-    OperationSearchResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Operation'
-        has_more:
-          type: boolean
   securitySchemes:
     OAuthToken:
       type: apiKey
