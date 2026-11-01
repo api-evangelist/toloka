@@ -1,4 +1,4 @@
-# Toloka (toloka)
+# Toloka
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,139 +66,139 @@
 
 Toloka is a data-labeling and human-data platform that powers human-in-the-loop pipelines for training and evaluating AI. The Toloka API lets requesters programmatically create projects, configure pools of crowdsourced tasks, upload tasks and task suites, collect and review Toloker responses, and track asynchronous operations, with a companion toloka-kit Python SDK.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/toloka/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/toloka/refs/heads/main/apis.yml)
+**Areas:** Data Labeling · Crowdsourcing · Human-in-the-Loop · Training Data · Artificial Intelligence
 
-## Tags
+## Toloka on APIs.io
 
-- Data Labeling
-- Crowdsourcing
-- Human-in-the-Loop
-- Training Data
-- AI
+Everything profiled for Toloka is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/toloka/](https://apis.io/providers/toloka/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (12)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Toloka Assignments API](https://apis.io/apis/toloka/toloka-assignments-api/) — Retrieve Toloker responses and accept or reject completed assignments.
+- [Toloka Attachments API](https://apis.io/apis/toloka/toloka-attachments-api/) — Retrieve files Tolokers attached to their assignments.
+- [Toloka Operations API](https://apis.io/apis/toloka/toloka-operations-api/) — Track the status of asynchronous operations.
+- [Toloka Pools API](https://apis.io/apis/toloka/toloka-pools-api/) — Create, configure, open, and close pools of tasks for Tolokers.
+- [Toloka Projects API](https://apis.io/apis/toloka/toloka-projects-api/) — Create and manage projects that define task interface and instructions.
+- [Toloka Skills API](https://apis.io/apis/toloka/toloka-skills-api/) — Create and manage skills assigned to Tolokers.
+- [Toloka Task Suites API](https://apis.io/apis/toloka/toloka-task-suites-api/) — Upload and retrieve task suites (groups of tasks shown together).
+- [Toloka Tasks API](https://apis.io/apis/toloka/toloka-tasks-api/) — Upload and retrieve individual tasks.
+- [Toloka Training API](https://apis.io/apis/toloka/toloka-training-api/) — Create and manage training pools used to qualify Tolokers.
+- [Toloka User Bonuses API](https://apis.io/apis/toloka/toloka-user-bonuses-api/) — Issue bonus payments to Tolokers.
+- [Toloka User Restrictions API](https://apis.io/apis/toloka/toloka-user-restrictions-api/) — Restrict Tolokers from a pool, project, or all projects.
+- [Toloka Webhook Subscriptions API](https://apis.io/apis/toloka/toloka-webhook-subscriptions-api/) — Subscribe to platform events delivered to your endpoint.
 
-## APIs
+### Published properties
 
-### Toloka Projects API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Create, edit, list, and archive projects that define the task input/output schema, Toloker interface, and instructions shared across pools.
+#### Agentic access (1)
 
-- **Human URL:** [https://toloka.ai/docs/api/api-reference/](https://toloka.ai/docs/api/api-reference/)
-- **Base URL:** `https://api.toloka.ai/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Toloka Agentic Access](https://apis.io/agentic-access/toloka/toloka-agentic-access/)
 
-- Projects
-- Task Specification
-- Configuration
+#### Collections (13)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://toloka.ai/docs/api/)
-- [API Reference](https://toloka.ai/docs/api/api-reference/)
-- [OpenAPI](openapi/toloka-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/toloka.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [GitHub](https://github.com/Toloka/toloka-kit)
+- [Toloka API](https://apis.io/collections/toloka/open-toloka/)
+- [Toloka Assignments API](https://apis.io/collections/toloka/open-toloka-assignments-api/)
+- [Toloka Assignments Attachments API](https://apis.io/collections/toloka/open-toloka-attachments-api/)
+- [Toloka Assignments Operations API](https://apis.io/collections/toloka/open-toloka-operations-api/)
+- [Toloka Assignments Pools API](https://apis.io/collections/toloka/open-toloka-pools-api/)
+- [Toloka Assignments Projects API](https://apis.io/collections/toloka/open-toloka-projects-api/)
+- [Toloka Assignments Skills API](https://apis.io/collections/toloka/open-toloka-skills-api/)
+- [Toloka Assignments Task Suites API](https://apis.io/collections/toloka/open-toloka-task-suites-api/)
+- [Toloka Assignments Tasks API](https://apis.io/collections/toloka/open-toloka-tasks-api/)
+- [Toloka Assignments Training API](https://apis.io/collections/toloka/open-toloka-training-api/)
+- [Toloka Assignments User Bonuses API](https://apis.io/collections/toloka/open-toloka-user-bonuses-api/)
+- [Toloka Assignments User Restrictions API](https://apis.io/collections/toloka/open-toloka-user-restrictions-api/)
+- [Toloka Assignments Webhook Subscriptions API](https://apis.io/collections/toloka/open-toloka-webhook-subscriptions-api/)
 
-### Toloka Pools API
+#### Security (3)
 
-Create and configure pools and training pools, set rewards, filters, and quality control, then open, close, and archive them to control when Tolokers see tasks.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://toloka.ai/docs/api/api-reference/](https://toloka.ai/docs/api/api-reference/)
-- **Base URL:** `https://api.toloka.ai/api/v1`
+- [Toloka Authentication](https://apis.io/security/toloka/toloka-authentication/)
+- [Toloka Domain Security](https://apis.io/security/toloka/toloka-domain-security/)
+- [Toloka Vulnerability Disclosure](https://apis.io/security/toloka/toloka-vulnerability-disclosure/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Pools
-- Training
-- Quality Control
+Published plans, tiers and prices.
 
-#### Properties
+- [Toloka Plans Pricing](https://apis.io/plans/toloka/toloka-plans-pricing/)
 
-- [Documentation](https://toloka.ai/docs/api/)
-- [API Reference](https://toloka.ai/docs/api/api-reference/)
-- [OpenAPI](openapi/toloka-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/toloka.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [GitHub](https://github.com/Toloka/toloka-kit)
+#### Rate limits (1)
 
-### Toloka Tasks & Task Suites API
+Published request limits.
 
-Upload individual tasks or batches and group them into task suites, with overlap settings, known solutions for quality control, and asynchronous batch creation for large volumes.
+- [Toloka Rate Limits](https://apis.io/rate-limits/toloka/toloka-rate-limits/)
 
-- **Human URL:** [https://toloka.ai/docs/api/api-reference/](https://toloka.ai/docs/api/api-reference/)
-- **Base URL:** `https://api.toloka.ai/api/v1`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Tasks
-- Task Suites
-- Batch Upload
+- [Toloka Finops](https://apis.io/finops/toloka/toloka-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://toloka.ai/docs/api/concepts/upload-tasks)
-- [API Reference](https://toloka.ai/docs/api/api-reference/)
-- [OpenAPI](openapi/toloka-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/toloka.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [GitHub](https://github.com/Toloka/toloka-kit)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Toloka Assignments API
-
-Retrieve Toloker responses filtered by pool, status, and user, then accept or reject completed assignments and issue bonuses, restrictions, and skills off the results.
-
-- **Human URL:** [https://toloka.ai/docs/api/api-reference/](https://toloka.ai/docs/api/api-reference/)
-- **Base URL:** `https://api.toloka.ai/api/v1`
-
-#### Tags
-
-- Assignments
-- Responses
-- Review
-
-#### Properties
-
-- [Documentation](https://toloka.ai/docs/api/concepts/get-response)
-- [API Reference](https://toloka.ai/docs/api/api-reference/)
-- [OpenAPI](openapi/toloka-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/toloka.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [GitHub](https://github.com/Toloka/toloka-kit)
-
-### Toloka Operations & Webhooks API
-
-Poll the status of asynchronous operations returned by batch and pool actions, and manage webhook subscriptions that push pool and assignment events to your endpoint with HMAC SHA256 signed notifications.
-
-- **Human URL:** [https://toloka.ai/docs/api/api-reference/](https://toloka.ai/docs/api/api-reference/)
-- **Base URL:** `https://api.toloka.ai/api/v1`
-
-#### Tags
-
-- Operations
-- Webhooks
-- Async
-
-#### Properties
-
-- [Documentation](https://toloka.ai/docs/api/concepts/using-webhook-subscriptions)
-- [API Reference](https://toloka.ai/docs/api/api-reference/)
-- [OpenAPI](openapi/toloka-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/toloka.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [GitHub](https://github.com/Toloka/toloka-kit)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/Toloka)
-- [LinkedIn](https://www.linkedin.com/company/toloka)
 - [Website](https://toloka.ai)
 - [Documentation](https://toloka.ai/docs/api/)
-- [Plans](plans/toloka-plans-pricing.yml)
-- [Rate Limits](rate-limits/toloka-rate-limits.yml)
-- [Fin Ops](finops/toloka-finops.yml)
+- [Blog](https://toloka.ai/blog)
+- [GitHub](https://github.com/Toloka)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 44.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 5.3 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/toloka/](https://apis.io/providers/toloka/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Toloka: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/toloka/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
